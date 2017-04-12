@@ -10,4 +10,103 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mainguyen.sportshopapp.Activities.UserActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp">
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="12dp"
+                android:text="Enter your email"
+                android:textSize="18dp"
+                android:textColor="#111"/>
+
+        <EditText
+                android:id="@+id/tv_inputEmai"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+            android:textColor="#3333FF"/>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="12dp"
+                android:text="Enter your password"
+                android:textSize="18dp"
+                android:textColor="#111"/>
+
+            <EditText
+                android:id="@+id/tv_inputPassword"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:password="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="23dp">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:padding="12dp"
+                android:text="login"
+                android:textSize="18dp"
+                android:background="#FF6666"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="35dp"
+                android:layout_marginLeft="11dp"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_logout"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:padding="2dp"
+                android:text="logout"
+                android:textSize="18dp"
+                android:background="#FF6666"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#111"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:fontFamily="cursive"
+                android:textStyle="bold"
+                android:text="Welcome to login "
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="11dp"
+                android:layout_marginStart="11dp" />
+
 </RelativeLayout>
