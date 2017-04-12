@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingTop="20dp"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatTextView
+
+        android:text="Change Passwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/textView"
+        android:layout_marginTop="20dp"
+        android:fontFamily="cursive"
+        android:textSize="30dp"
+        android:layout_marginBottom="40dp"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="Old Passwork"
+        android:gravity="center"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:hint="New Passwork"
+        android:gravity="center"
+        android:layout_marginTop="30dp"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:hint="Config Passwork"
+        android:gravity="center"
+        android:layout_marginTop="30dp"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:text="Change Passwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="#ff6666"/>
+</LinearLayout>
