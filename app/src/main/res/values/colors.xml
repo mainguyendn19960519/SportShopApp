@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="color1">#ffcc00</color>
+    <color name="colorGreen">#00ff00</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorPink">#ff00ff</color>
+    <color name="colorBlue">#007fff</color>
+    <color name="color2">#00bfbf</color>
+    <color name="white">#f7f3f3</color>
 </resources>
