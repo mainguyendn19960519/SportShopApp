@@ -83,7 +83,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="1dp"
                 android:padding="2dp"
-                android:text="logout"
+                android:text="Cancel"
                 android:textSize="18dp"
                 android:background="#FF6666"
                 android:layout_alignParentTop="true"
