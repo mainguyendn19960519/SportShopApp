@@ -18,16 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btNextScreenLogin =(Button) findViewById(R.id.btLogin);
 
+        Button btNextScreenLogin =(Button) findViewById(R.id.btLogin);
         btNextScreenLogin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-                //Starting a new Intent
-                Intent nextScreen = new Intent(getApplicationContext(), UserActivity.class);
-               // Log.e("n", inputName.getText() + "." + inputEmail.getText());
-
-                startActivity(nextScreen);
-
+                Intent userActivity = new Intent(getApplicationContext(), UserActivity.class);
+                startActivity(userActivity);
             }
         });
   }
