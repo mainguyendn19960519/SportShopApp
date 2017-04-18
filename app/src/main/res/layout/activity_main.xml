@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.example.mainguyen.sportshopapp.Activities.MainActivity">
 
     <LinearLayout
@@ -14,71 +11,32 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:weightSum="9">
+        android:weightSum="9"
+        android:id="@+id/textView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
->
+            >
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:src="@drawable/back"
                 android:layout_gravity="top"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color2"
+                android:text="Welcome to Tiger Shop"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="30dp"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@color/colorBlue"
-            android:orientation="horizontal"
-            >
-
-            <Button
-                android:id="@+id/btHome"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:background="@color/color2"
-                android:text="Home"
-                android:fontFamily="serif"
-                android:textStyle="bold" />
-            <EditText
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                />
-
-            <Button
-                android:layout_width="75dp"
-                android:layout_height="40dp"
-                android:background="@color/color2"
-                android:layout_marginLeft="5dp"
-                android:text="Search"
-                android:fontFamily="serif"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
-
-            <Button
-                android:id="@+id/btLogin"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:background="@color/color2"
-                android:text="Login"
-                android:textStyle="bold"
-                android:fontFamily="serif"/>
-
-        </LinearLayout>
 
 
         <LinearLayout
@@ -112,16 +70,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="120.000 đ"
+                        android:text="120.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
                         android:text="Buy Now"
-                        android:fontFamily="serif"/>
+                        android:fontFamily="serif"
+                        android:background="@drawable/button"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -143,14 +102,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="130.000 đ"
+                        android:text="130.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
+                        android:background="@drawable/button"
                         android:text="Buy Now"
                         android:fontFamily="serif"/>
                 </LinearLayout>
@@ -173,14 +132,172 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="120.000 đ"
+                        android:text="120.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arsenal2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="120.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arsenal"
+                        android:id="@+id/imageView3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="150.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/liverpool" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="120.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/real" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="140.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bacelona1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="120.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
                         android:text="Buy Now"
                         android:fontFamily="serif"/>
                 </LinearLayout>
@@ -206,117 +323,20 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/arsenal" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="150.000 đ"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:background="@color/color2"
-                        android:text="Buy Now"
-                        android:fontFamily="serif"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="4">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/liverpool" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="120.000 đ"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:background="@color/color2"
-                        android:text="Buy Now"
-                        android:fontFamily="serif"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="4">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/real" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="140.000 đ"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:background="@color/color2"
-                        android:text="Buy Now"
-                        android:fontFamily="serif"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="4">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:src="@drawable/bacelona" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="130.000 đ"
+                        android:text="150.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
+                        android:background="@drawable/button"
                         android:text="Buy Now"
                         android:fontFamily="serif"/>
                 </LinearLayout>
@@ -339,14 +359,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="120.000 đ"
+                        android:text="120.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
+                        android:background="@drawable/button"
                         android:text="Buy Now"
                         android:fontFamily="serif"/>
                 </LinearLayout>
@@ -359,44 +379,73 @@
                     android:orientation="vertical"
                     android:weightSum="4">
 
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/spain" />
+                        android:src="@drawable/arsenal1"
+                        android:id="@+id/imageView2" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="120.000 đ"
+                        android:text="140.000 d"
                         android:textStyle="bold" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:background="@color/color2"
+                        android:background="@drawable/button"
                         android:text="Buy Now"
                         android:fontFamily="serif"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arsenal3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="120.000 d"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button"
+                        android:text="Buy Now"
+                        android:fontFamily="serif"/>
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
-
-
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="@color/colorBlue">
+            android:layout_weight="4"
+            android:background="@color/color2"
+            >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="" />
         </LinearLayout>
 
 
+
+
     </LinearLayout>
-</RelativeLayout>
+
+</FrameLayout>
