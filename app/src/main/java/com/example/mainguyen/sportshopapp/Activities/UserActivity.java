@@ -14,14 +14,13 @@ public class UserActivity extends AppCompatActivity {
     EditText edPass;
     private static final String PASS="12345678";
     private static final String EMAIL="admin@gmail.com";
-
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Intent i = getIntent();
-        // Receiving the Data
+      
         edEmail = (EditText) findViewById(R.id.tv_inputEmai);
         edPass = (EditText) findViewById(R.id.tv_inputPassword);
 
