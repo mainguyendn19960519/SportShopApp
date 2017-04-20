@@ -1,30 +1,27 @@
 package com.example.mainguyen.sportshopapp.Activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.mainguyen.sportshopapp.R;
 import com.example.mainguyen.sportshopapp.Title.BaseActivity;
 
-/**
- * Created by ha.dinh on 4/12/2017.
- */
+public class ManagementUserActivity extends BaseActivity {
 
-public class ManagementActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_management);
+        setContentView(R.layout.activity_user);
 
-        Button btUserManagement = (Button) findViewById(R.id.btn_userManagement);
+        Button showStaff = (Button) findViewById(R.id.twshow);
 
-        btUserManagement.setOnClickListener(new View.OnClickListener(){
+        showStaff.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-                Intent managementUserActivity = new Intent(getApplicationContext(), ManagementUserActivity.class);
-                startActivity(managementUserActivity);
+                Intent showStaff = new Intent(getApplicationContext(), ShowStaffActivity.class);
+                startActivity(showStaff);
             }
         });
     }

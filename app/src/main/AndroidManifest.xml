@@ -15,9 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.ShowStaffActivity"
+            android:label="@string/title_activity_all_staff"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.UserActivity"></activity>
-        <activity android:name=".Activities.ManagementActivity"></activity>
-
+        <activity android:name=".Activities.ManagementUserActivity"></activity>
+        <activity android:name=".Activities.ManagementActivity" />
     </application>
 
 </manifest>
