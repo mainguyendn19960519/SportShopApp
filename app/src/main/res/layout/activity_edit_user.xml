@@ -20,7 +20,7 @@
         android:textSize="30dp"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:text="Welcome to register "
+        android:text="Welcome to edit acount staff "
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -49,7 +49,6 @@
             android:id="@+id/tv_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your name"
             android:textColor="#0033FF"
             android:padding="12dp"
             android:textSize="18dp"/>
@@ -65,7 +64,6 @@
             android:id="@+id/tv_email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your eamil"
             android:textColor="#0033FF"
             android:padding="12dp"
             android:textSize="18dp"/>
@@ -82,7 +80,6 @@
             android:id="@+id/tv_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your password"
             android:textColor="#0033FF"
             android:padding="12dp"
             android:textSize="18dp"/>
@@ -100,11 +97,11 @@
             android:id="@+id/tv_confirmPass"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm your password"
             android:textColor="#0033FF"
             android:padding="12dp"
             android:textSize="18dp"/>
 
 
-    </LinearLayout>
+</LinearLayout>
+
 </LinearLayout>
