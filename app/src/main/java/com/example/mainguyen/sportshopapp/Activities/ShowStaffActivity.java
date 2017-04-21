@@ -39,13 +39,15 @@ public class ShowStaffActivity extends BaseActivity{
     private List<Staffs> staffsList = new ArrayList<Staffs>();
     private ListView listView;
     private StaffAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.v("loi","        ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_staff);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+Log.v("loi","        ");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +64,7 @@ public class ShowStaffActivity extends BaseActivity{
 
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
+//        pDialog.setMessage("Loading...");
         pDialog.show();
 
         // changing action bar color
@@ -90,7 +92,7 @@ public class ShowStaffActivity extends BaseActivity{
                                 staffs.setIdentityCard( obj.getString("identityCard"));
                                 staffs.setUsername( obj.getString("userName"));
                                 staffs.setPassword( obj.getString("descriptionPassword"));
-
+                                Log.v("loi","        ");
                                 // adding movie to movies array
                                 staffsList.add(staffs);
 

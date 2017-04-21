@@ -12,8 +12,8 @@ import java.io.ByteArrayOutputStream;
 public class Common {
 
     //constant
-    public static final String API_SERVER_IP = "http://192.168.103.127:8080/j2ee/";
-    public static final String SERVER_DEPARTMENT_IMAGE_RESOURCE = "http://192.168.103.127:8080/j2ee/resources/deparment-images/";
+    public static final String API_SERVER_IP = "http://192.168.103.123:8080/j2ee/";
+//    public static final String SERVER_DEPARTMENT_IMAGE_RESOURCE = "http://192.168.103.123:8080/j2ee/resources/deparment-images/";
 
 
     public static String getStringImage(Bitmap bmp){
