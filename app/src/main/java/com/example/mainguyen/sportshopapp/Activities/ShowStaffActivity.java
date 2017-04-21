@@ -63,7 +63,7 @@ public class ShowStaffActivity extends BaseActivity{
 
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-//        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Loading...");
         pDialog.show();
 
         // changing action bar color
@@ -71,8 +71,8 @@ public class ShowStaffActivity extends BaseActivity{
                 new ColorDrawable(Color.parseColor("#1b1b1b")));
 
         // Creating volley request obj
-        JsonArrayRequest departReq = new JsonArrayRequest(url_all_staff,
-                new Response.Listener<JSONArray>() {
+        JsonArrayRequest staffReq = new JsonArrayRequest(url_all_staff,
+                new Response.Listener<JSONArray>(){
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
@@ -91,8 +91,6 @@ public class ShowStaffActivity extends BaseActivity{
                                 staffs.setIdentityCard( obj.getString("identityCard"));
                                 staffs.setUsername( obj.getString("userName"));
                                 staffs.setPassword( obj.getString("descriptionPassword"));
-                                Log.v("loi",obj.getString("descriptionPassword"));
-                                // adding movie to movies array
                                 staffsList.add(staffs);
 
                             } catch (JSONException e) {
@@ -111,7 +109,7 @@ public class ShowStaffActivity extends BaseActivity{
 
             }
         });
-        AppController.getInstance().addToRequestQueue(departReq);
+        AppController.getInstance().addToRequestQueue(staffReq);
     }
     @Override
     public void onDestroy() {

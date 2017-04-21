@@ -22,24 +22,24 @@ public class StaffAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private List<Staffs> staffsList;
 
-    public StaffAdapter(Activity activity, List<Staffs> staffsList) {
+    public StaffAdapter(Activity activity, List<Staffs> departmentList) {
         this.activity = activity;
-        this.staffsList = staffsList;
+        this.staffsList = departmentList;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return staffsList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return staffsList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -57,7 +57,6 @@ public class StaffAdapter extends BaseAdapter {
         TextView identityCard = (TextView) view.findViewById(R.id.identityCard);
         TextView userName = (TextView) view.findViewById(R.id.userName);
         TextView password = (TextView) view.findViewById(R.id.password);
-        TextView totalStaff = (TextView) view.findViewById(R.id.total_staff);
 
 
         // getting movie data for the row
@@ -83,9 +82,6 @@ public class StaffAdapter extends BaseAdapter {
 
         // Password
         password.setText("Password: " + String.valueOf(staffs.getPassword()));
-
-        // Total staff
-        totalStaff.setText(String.valueOf(5));
 
         return view;
     }

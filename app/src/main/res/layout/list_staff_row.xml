@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_row_selector"
     android:padding="8dp" >
  <!-- Id Staff -->
     <TextView
@@ -46,7 +45,7 @@
         android:id="@+id/identityCard"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/phone"
         android:layout_marginTop="5dp"
         android:textColor="@color/genre"
         android:textSize="@dimen/genre" />
@@ -71,15 +70,21 @@
         android:textColor="@color/genre"
         android:textSize="@dimen/genre" />
 
-    <!-- Total staff -->
-    <TextView
-        android:id="@+id/total_staff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/year"
-        android:textSize="@dimen/year"
-        android:text="text"/>
+   <Button
+       android:text="Edit"
+       android:id="@+id/bntEdit"
+       android:textColor="@color/colorRed"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/password"/>
+   <Button
+       android:layout_width="wrap_content"
+       android:id="@+id/bntDelete"
+       android:layout_height="wrap_content"
+       android:layout_toRightOf="@+id/bntEdit"
+       android:layout_below="@+id/password"
+       android:textColor="@color/colorRed"
+       android:text="Delete" />
+
 
 </RelativeLayout>
