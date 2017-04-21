@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.mainguyen.sportshopapp.Adapter.StaffAdapter;
+import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
 import com.example.mainguyen.sportshopapp.Title.BaseActivity;
@@ -42,12 +43,10 @@ public class ShowStaffActivity extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.v("loi","        ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_staff);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-Log.v("loi","        ");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +91,7 @@ Log.v("loi","        ");
                                 staffs.setIdentityCard( obj.getString("identityCard"));
                                 staffs.setUsername( obj.getString("userName"));
                                 staffs.setPassword( obj.getString("descriptionPassword"));
-                                Log.v("loi","        ");
+                                Log.v("loi",obj.getString("descriptionPassword"));
                                 // adding movie to movies array
                                 staffsList.add(staffs);
 
@@ -112,6 +111,7 @@ Log.v("loi","        ");
 
             }
         });
+        AppController.getInstance().addToRequestQueue(departReq);
     }
     @Override
     public void onDestroy() {
