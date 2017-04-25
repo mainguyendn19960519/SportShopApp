@@ -35,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:layout_marginTop="10dp"
-            android:textColor="#3333FF"/>
+                android:singleLine="true"
+                android:textColor="#3333FF"/>
 
         <TextView
                 android:layout_width="fill_parent"
@@ -51,6 +52,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
+                android:singleLine="true"
                 android:layout_marginTop="10dp"
                 android:password="true"/>
 
