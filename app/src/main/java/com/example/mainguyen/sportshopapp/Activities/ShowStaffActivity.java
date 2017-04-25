@@ -81,7 +81,6 @@ public class ShowStaffActivity extends BaseActivity{
                         // Parsing json
                         for (int i = 0; i < response.length(); i++) {
                             try {
-
                                 JSONObject obj = response.getJSONObject(i);
                                 Staffs staffs = new Staffs();
                                 staffs.setStaffId(obj.getInt("staffId"));

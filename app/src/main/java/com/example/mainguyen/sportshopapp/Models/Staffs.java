@@ -13,18 +13,20 @@ public class Staffs {
     private String identityCard;
     private String username;
     private String password;
+    private int roleId;
 
     public Staffs(){
 
     }
 
-    public Staffs(int staffId, String name, String address, String phone, String identityCard, String username) {
+    public Staffs(int staffId, String name, String address, String phone, String identityCard, String username, int roleId) {
         this.staffId = staffId;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.identityCard = identityCard;
         this.username = username;
+        this.roleId = roleId;
     }
 
     public int getStaffId() {
@@ -81,6 +83,14 @@ public class Staffs {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
     public Staffs(int staffId, String name, String phone, String address, String identityCard, String username, String password) {
