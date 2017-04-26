@@ -1,6 +1,7 @@
 package com.example.mainguyen.sportshopapp.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -57,6 +58,12 @@ public class LoginActivity extends BaseActivity {
                 executePostDepartmentToServer();
             }
         });
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              finish();
+            }
+        });
     }
 
     private void  executePostDepartmentToServer() {
@@ -91,11 +98,15 @@ public class LoginActivity extends BaseActivity {
                             );
                             if(staff.getRoleId() == 2){
                                 Toast.makeText(LoginActivity.this, "Boss", Toast.LENGTH_LONG).show();
+                                Intent managementActivity = new Intent(getApplicationContext(), ManagementActivity.class);
+                                startActivity(managementActivity);
                             }else if(staff.getRoleId() == 3){
                                 Toast.makeText(LoginActivity.this, "Employee", Toast.LENGTH_LONG).show();
-                            }else{
-                                Toast.makeText(LoginActivity.this, "Null" , Toast.LENGTH_LONG).show();
+                                Intent managementOfActivity = new Intent(getApplicationContext(), ManagementOfStaffActivity.class);
+                                startActivity(managementOfActivity);
+                            }else{Toast.makeText(LoginActivity.this, "null" , Toast.LENGTH_LONG).show();
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(LoginActivity.this, "exception" , Toast.LENGTH_LONG).show();
@@ -106,7 +117,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         hidePDialog();
-                        Toast.makeText(LoginActivity.this, "ngu nguoi" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!" , Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override

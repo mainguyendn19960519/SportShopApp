@@ -29,6 +29,7 @@
         <activity android:name=".Activities.ManagementUserActivity" />
         <activity android:name=".Activities.ManagementActivity" />
         <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.ManagementOfStaffActivity"></activity>
     </application>
 
 </manifest>
