@@ -20,6 +20,5 @@ public class ShowStaffFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View viewAllStaff = inflater.inflate(R.layout.activity_all_staff, container, false);
         return viewAllStaff;
-
     }
 }

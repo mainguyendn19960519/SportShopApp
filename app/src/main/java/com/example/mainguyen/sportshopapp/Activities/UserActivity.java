@@ -53,7 +53,7 @@ public class UserActivity extends AppCompatActivity {
                 }
                 //xử lý với web service để check pass và email
                 else if(edPass.getText().toString().equals(PASS) && edEmail.getText().toString().equals(EMAIL)){
-                    Intent nextMNScreen = new Intent(getApplication(), ManagementActivity.class);
+                    Intent nextMNScreen = new Intent(getApplication(), BossManagementActivity.class);
                     startActivity(nextMNScreen);
                 }
 

@@ -20,23 +20,20 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_oldPass"
             android:hint="Old Password"
-            android:gravity="center"
-            />
+            android:gravity="center" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edt_newPass"
             android:hint="New Password"
-            android:gravity="center"
-            />
+            android:gravity="center" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edt_configPass"
             android:hint="Config Password"
-            android:gravity="center"
-            />
+            android:gravity="center" />
 
         <LinearLayout
           android:layout_width="match_parent"
@@ -61,8 +58,6 @@
               android:layout_weight="1"
               android:layout_marginLeft="20dp"
               android:id="@+id/btn_cancelChangePass"/>
-
       </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

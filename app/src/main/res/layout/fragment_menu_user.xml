@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.mainguyen.sportshopapp.Fragment.User_Fragment_test">
+    tools:context="com.example.mainguyen.sportshopapp.Fragment.UserFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

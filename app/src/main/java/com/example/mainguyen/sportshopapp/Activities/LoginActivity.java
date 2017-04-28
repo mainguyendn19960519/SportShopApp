@@ -13,8 +13,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
@@ -25,7 +23,6 @@ import com.example.mainguyen.sportshopapp.Utils.Common;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -98,11 +95,11 @@ public class LoginActivity extends BaseActivity {
                             );
                             if(staff.getRoleId() == 2){
                                 Toast.makeText(LoginActivity.this, "Boss", Toast.LENGTH_LONG).show();
-                                Intent managementActivity = new Intent(getApplicationContext(), ManagementActivity.class);
+                                Intent managementActivity = new Intent(getApplicationContext(), BossManagementActivity.class);
                                 startActivity(managementActivity);
                             }else if(staff.getRoleId() == 3){
                                 Toast.makeText(LoginActivity.this, "Employee", Toast.LENGTH_LONG).show();
-                                Intent managementOfActivity = new Intent(getApplicationContext(), ManagementOfStaffActivity.class);
+                                Intent managementOfActivity = new Intent(getApplicationContext(), EmployeeManagementActivity.class);
                                 startActivity(managementOfActivity);
                             }else{Toast.makeText(LoginActivity.this, "null" , Toast.LENGTH_LONG).show();
                             }
