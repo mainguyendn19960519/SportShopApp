@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">SportShopApp</string>
     <string name="title_activity_all_staff">AllStaffActivity</string>
+
+    <string name="prompt">Gender</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+    <string-array name="role_array">
+        <item>Boss</item>
+        <item>Staff</item>
+    </string-array>
 </resources>

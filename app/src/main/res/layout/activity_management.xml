@@ -24,7 +24,7 @@
             android:layout_marginTop="60dp"/>
 
         <Button
-            android:id="@+id/btn_userManagement"
+            android:id="@+id/btnUserManagement"
             android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:text="User management"
@@ -36,7 +36,7 @@
             android:layout_marginTop="40dp"/>
 
         <Button
-            android:id="@+id/btn_derManagement"
+            android:id="@+id/btnDerManagement"
             android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -47,7 +47,7 @@
             android:layout_marginTop="40dp" />
 
         <Button
-            android:id="@+id/btn_productManagement"
+            android:id="@+id/btnProductManagement"
             android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:textSize="14dp"

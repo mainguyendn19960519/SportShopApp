@@ -52,21 +52,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
-
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-        Button btNextScreenLogin =(Button) findViewById(R.id.btn_login);
-
-        btNextScreenLogin.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View arg0) {
-//                Intent userActivity = new Intent(getApplicationContext(), UserActivity.class);
-//                startActivity(userActivity);
-                Intent userActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent userActivity = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(userActivity);
-            }
-        });
+//                Intent userActivity = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(userActivity);
     }
-
 }
+
 
