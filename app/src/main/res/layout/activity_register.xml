@@ -4,59 +4,158 @@
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.example.mainguyen.sportshopapp.Activities.UserActivity">
-    <TextView
-        android:id="@+id/tw1"
-        android:text="Name:"
-        android:textSize="20dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/etName"
-        android:layout_toRightOf="@+id/tw1"
-        android:paddingTop="10dp"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:hint="Enter your's name"
-        android:paddingLeft="15dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/tw2"
-        android:text="Email:"
-        android:textSize="20dp"
-        android:layout_below="@+id/tw1"
-        android:paddingLeft="10dp"
-        android:paddingTop="17dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_below="@+id/etName"
-        android:layout_toRightOf="@+id/tw2"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Register Form"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:textColor="@color/colorBlue"
+                android:fontFamily="monospace"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your's fullname"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:id="@+id/edt_fullname"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your's identity card"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:id="@+id/edt_identityCard"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your's address"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:id="@+id/edt_Address"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your's phone"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:id="@+id/edt_phone"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:entries="@array/gender_array"
+                android:id="@+id/spinner_gender"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:entries="@array/role_array"
+                android:id="@+id/spinner_role"
+                />
+
+        </LinearLayout>
+        <LinearLayout
         android:layout_width="match_parent"
-        android:hint="Enter your's name"
-        android:paddingLeft="15dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/tw3"
-        android:text="Password:"
-        android:textSize="20dp"
-        android:layout_below="@+id/tw2"
-        android:paddingLeft="10dp"
-        android:paddingTop="17dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/etPass"
-        android:layout_below="@+id/etEmail"
-        android:layout_toRightOf="@+id/tw3"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Your's Username"
+            android:textSize="15dp"
+            android:fontFamily="serif"
+            android:id="@+id/edt_username"
+            />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your's Password"
+                android:textSize="15dp"
+                android:fontFamily="serif"
+                android:id="@+id/edt_pass"
+                />
+
+    </LinearLayout>
+        <LinearLayout
         android:layout_width="match_parent"
-        android:hint="Enter your's name"
-        android:paddingLeft="15dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:background="@drawable/background_button"
+                android:layout_weight="1"
+                android:id="@+id/btn_register"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button"
+            android:layout_weight="1"
+            android:text="Cancel"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/btn_cancel"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 </RelativeLayout>
