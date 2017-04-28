@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Log.v("Test onResume","Test onResume");
         super.onResume();
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +54,11 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     }
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
                 Intent userActivity = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(userActivity);
 //                Intent userActivity = new Intent(getApplicationContext(), LoginActivity.class);
 //                startActivity(userActivity);
     }
 }
-
-
 
 
