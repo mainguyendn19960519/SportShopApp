@@ -19,11 +19,14 @@ public class ManagementActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_management);
 
-        Button btUserManagement = (Button) findViewById(R.id.btn_userManagement);
+        Button btUserManagement = (Button) findViewById(R.id.btnUserManagement);
 
         btUserManagement.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-                Intent managementUserActivity = new Intent(getApplicationContext(), ManagementUserActivity.class);
+//                Intent managementUserActivity = new Intent(getApplicationContext(), ManagementUserActivity.class);
+//                startActivity(managementUserActivity);
+
+                Intent managementUserActivity = new Intent(getApplicationContext(), UserFragmentActivity.class);
                 startActivity(managementUserActivity);
             }
         });
