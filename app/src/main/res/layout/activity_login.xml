@@ -103,7 +103,7 @@
                 android:padding="2dp"
                 android:text="cancel"
                 android:textSize="18dp"
-                android:background="#FF6666"
+                android:background="@drawable/background_button"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"/>

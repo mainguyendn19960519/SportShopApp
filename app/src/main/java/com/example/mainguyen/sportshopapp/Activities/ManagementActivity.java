@@ -26,7 +26,7 @@ public class ManagementActivity extends BaseActivity {
 //                Intent managementUserActivity = new Intent(getApplicationContext(), ManagementUserActivity.class);
 //                startActivity(managementUserActivity);
 
-                Intent managementUserActivity = new Intent(getApplicationContext(), UserFragmentActivity.class);
+                Intent managementUserActivity = new Intent(getApplicationContext(), User_Activity_Test.class);
                 startActivity(managementUserActivity);
             }
         });
@@ -36,4 +36,6 @@ public class ManagementActivity extends BaseActivity {
     public void onPermissionsGranted(int requestCode) {
 
     }
+
+
 }

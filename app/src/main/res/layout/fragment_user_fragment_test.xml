@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mainguyen.sportshopapp.Fragment.User_Fragment_test">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:text="Management User"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:fontFamily="cursive"/>
+
+    <Button
+        android:text="Register Account"
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_button" />
+
+    <Button
+        android:text="Show All Account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnShow"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_button"/>
+
+    <Button
+        android:text="Change Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnChangPass"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_button"/>
+
+</LinearLayout>

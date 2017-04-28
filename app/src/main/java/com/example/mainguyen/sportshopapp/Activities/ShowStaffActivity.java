@@ -76,7 +76,6 @@ public class ShowStaffActivity extends BaseActivity{
                                 staffs.setUsername( obj.getString("userName"));
                                 staffs.setPassword( obj.getString("descriptionPassword"));
                                 staffsList.add(staffs);
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

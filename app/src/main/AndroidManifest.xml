@@ -30,7 +30,9 @@
         <activity android:name=".Activities.ManagementActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.ManagementOfStaffActivity" />
-        <activity android:name=".Activities.UserFragmentActivity"></activity>
+        <activity android:name=".Activities.UserFragmentActivity" />
+        <activity android:name=".Activities.User_Activity_Test" />
+        <activity android:name=".Activities.Activity_Fragment_Test"></activity>
     </application>
 
 </manifest>
