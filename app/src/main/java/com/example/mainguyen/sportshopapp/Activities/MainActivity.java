@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 setContentView(R.layout.activity_main);
                 break;
             case 1:
-                Intent nextScreen = new Intent(getApplicationContext(), UserActivity.class);
+                Intent nextScreen = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(nextScreen);
                 break;
             case 2:
@@ -54,10 +54,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     }
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-                Intent userActivity = new Intent(getApplicationContext(), UserActivity.class);
-                startActivity(userActivity);
-//                Intent userActivity = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(userActivity);
+
     }
 }
 

@@ -39,6 +39,8 @@ public class LoginActivity extends BaseActivity {
     Button btn_login;
     Button btn_cancel;
 
+    Intent managementOfActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +66,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void  executePostDepartmentToServer() {
-        //Showing the progress dialog
-        pDialog = new ProgressDialog(this);
-        // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url_login,
                 new Response.Listener<String>() {
                     @Override
@@ -77,7 +73,6 @@ public class LoginActivity extends BaseActivity {
                         // Parse the JSON:
                         Log.d(TAG, s.toString());
                         hidePDialog();
-
                         try {
 
                             JSONObject result = new JSONObject(s);
@@ -95,11 +90,11 @@ public class LoginActivity extends BaseActivity {
                             );
                             if(staff.getRoleId() == 2){
                                 Toast.makeText(LoginActivity.this, "Boss", Toast.LENGTH_LONG).show();
-                                Intent managementActivity = new Intent(getApplicationContext(), BossManagementActivity.class);
-                                startActivity(managementActivity);
+                                managementOfActivity = new Intent(getApplicationContext(), BossManagementActivity.class);
+                                startActivity(managementOfActivity);
                             }else if(staff.getRoleId() == 3){
                                 Toast.makeText(LoginActivity.this, "Employee", Toast.LENGTH_LONG).show();
-                                Intent managementOfActivity = new Intent(getApplicationContext(), EmployeeManagementActivity.class);
+                                managementOfActivity = new Intent(getApplicationContext(), EmployeeManagementActivity.class);
                                 startActivity(managementOfActivity);
                             }else{Toast.makeText(LoginActivity.this, "null" , Toast.LENGTH_LONG).show();
                             }

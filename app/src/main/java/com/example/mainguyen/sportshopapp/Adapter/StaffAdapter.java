@@ -45,7 +45,7 @@ public class StaffAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         if (inflater == null)
-            inflater = (LayoutInflater) activity
+            inflater = (LayoutInflater)activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (view == null)
             view = inflater.inflate(R.layout.list_staff_row, null);

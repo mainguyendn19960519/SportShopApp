@@ -22,10 +22,7 @@ public class BossManagementActivity extends BaseActivity {
 
         btUserManagement.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
-//                Intent managementUserActivity = new Intent(getApplicationContext(), ManagementUserActivity.class);
-//                startActivity(managementUserActivity);
-
-                Intent managementUserActivity = new Intent(getApplicationContext(), User_Activity_Test.class);
+                Intent managementUserActivity = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(managementUserActivity);
             }
         });
@@ -35,6 +32,4 @@ public class BossManagementActivity extends BaseActivity {
     public void onPermissionsGranted(int requestCode) {
 
     }
-
-
 }

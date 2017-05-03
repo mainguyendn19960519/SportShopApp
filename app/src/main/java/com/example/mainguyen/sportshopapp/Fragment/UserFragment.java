@@ -2,7 +2,6 @@ package com.example.mainguyen.sportshopapp.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,19 +77,33 @@ public class UserFragment extends Fragment {
 
 
         btRegister.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                onButtonPressed();
+                RegisterFragment registerFragment = new RegisterFragment();
+                onButtonPressed(registerFragment);
+            }
+        });
+        btShowAllAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShowStaffFragment showStaffFragment = new ShowStaffFragment();
+                onButtonPressed(showStaffFragment);
+            }
+        });
+        btChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChangPasswordFragment changPasswordFragment = new ChangPasswordFragment();
+                onButtonPressed(changPasswordFragment);
             }
         });
         return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed() {
+    public void onButtonPressed(Fragment fragment) {
         if (mListener != null) {
-            mListener.onFragmentInteraction();
+            mListener.onFragmentInteraction(fragment);
         }
     }
 
@@ -123,6 +136,6 @@ public class UserFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction();
+        void onFragmentInteraction(Fragment fragment);
     }
 }

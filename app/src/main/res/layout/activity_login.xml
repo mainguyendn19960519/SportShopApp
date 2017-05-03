@@ -80,11 +80,11 @@
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="1dp"
-                android:padding="12dp"
+                android:padding="2dp"
                 android:text="login"
                 android:textSize="18dp"
                 android:background="@drawable/background_button"
@@ -92,11 +92,11 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="35dp"
-                android:layout_marginLeft="11dp"/>
+                android:layout_marginLeft="5dp"/>
 
             <Button
                 android:id="@+id/btn_cancel"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="1dp"
