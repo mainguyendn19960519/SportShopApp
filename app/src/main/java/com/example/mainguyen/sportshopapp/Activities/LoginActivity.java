@@ -38,6 +38,7 @@ public class LoginActivity extends BaseActivity {
     EditText password;
     Button btn_login;
     Button btn_cancel;
+    public Staffs staff;
 
     Intent managementOfActivity;
 
@@ -50,6 +51,7 @@ public class LoginActivity extends BaseActivity {
         password = (EditText) findViewById(R.id.tv_inputPassword);
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,24 +78,27 @@ public class LoginActivity extends BaseActivity {
                         try {
 
                             JSONObject result = new JSONObject(s);
+                            JSONObject message = result.getJSONObject("message");
                             JSONObject dataObject = result.getJSONObject("dataObject");
                             JSONObject role = dataObject.getJSONObject("role");
 
-                            Staffs staff = new Staffs(
+                            staff = new Staffs(
                                     dataObject.getInt("staffId"),
                                     dataObject.getString("name"),
                                     dataObject.getString("address"),
                                     dataObject.getString("phone"),
                                     dataObject.getString("identityCard"),
                                     dataObject.getString("userName"),
-                                    role.getInt("roleId")
+                                    role.getInt("roleId"),
+                                    message.getString("message")
                             );
+
                             if(staff.getRoleId() == 2){
-                                Toast.makeText(LoginActivity.this, "Boss", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, staff.getMessage(), Toast.LENGTH_LONG).show();
                                 managementOfActivity = new Intent(getApplicationContext(), BossManagementActivity.class);
                                 startActivity(managementOfActivity);
                             }else if(staff.getRoleId() == 3){
-                                Toast.makeText(LoginActivity.this, "Employee", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, staff.getMessage(), Toast.LENGTH_LONG).show();
                                 managementOfActivity = new Intent(getApplicationContext(), EmployeeManagementActivity.class);
                                 startActivity(managementOfActivity);
                             }else{Toast.makeText(LoginActivity.this, "null" , Toast.LENGTH_LONG).show();
@@ -101,7 +106,7 @@ public class LoginActivity extends BaseActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "exception" , Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Exception" , Toast.LENGTH_LONG).show();
                         }
                     }
                 },
@@ -109,7 +114,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         hidePDialog();
-                        Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, staff.getMessage() , Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
