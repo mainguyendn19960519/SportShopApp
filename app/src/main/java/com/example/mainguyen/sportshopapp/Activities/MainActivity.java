@@ -13,7 +13,6 @@ import android.widget.Button;
 import com.example.mainguyen.sportshopapp.R;
 import com.example.mainguyen.sportshopapp.Title.BaseActivity;
 
-
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
     @Override
     protected void onResume() {
