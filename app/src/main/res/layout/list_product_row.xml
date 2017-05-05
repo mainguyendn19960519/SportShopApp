@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dp" >
+
+    <!-- Thumbnail Image -->
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dp" />
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- depCode -->
+    <TextView
+        android:id="@+id/depCode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textSize="@dimen/rating" />
+
+    <!-- description -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/depCode"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textColor="@color/genre"
+        android:textSize="@dimen/genre" />
+
+    <!-- total_staff -->
+    <TextView
+        android:id="@+id/total_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/year"
+        android:textSize="@dimen/year"
+        android:text="text"/>
+    <!--<TextView-->
+        <!--android:id="@+id/staffId"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="17dp"-->
+        <!--android:textStyle="bold" />-->
+
+    <!--&lt;!&ndash; Name &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/name"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/staffId"-->
+        <!--android:layout_marginTop="1dip"-->
+        <!--android:textSize="@dimen/rating" />-->
+
+    <!--&lt;!&ndash; Address &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/address"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/name"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="@color/genre"-->
+        <!--android:textSize="@dimen/genre" />-->
+
+    <!--&lt;!&ndash; Phone &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/phone"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/address"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="@color/genre"-->
+        <!--android:textSize="@dimen/genre" />-->
+
+    <!--&lt;!&ndash; IdentityCard &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/identityCard"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/name"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="@color/genre"-->
+        <!--android:textSize="@dimen/genre" />-->
+
+    <!--&lt;!&ndash; Username &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/userName"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/identityCard"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="@color/genre"-->
+        <!--android:textSize="@dimen/genre" />-->
+
+    <!--&lt;!&ndash; Password &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/password"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/userName"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:textColor="@color/genre"-->
+        <!--android:textSize="@dimen/genre" />-->
+
+    <!--&lt;!&ndash; Total staff &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/total_staff"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:textColor="@color/year"-->
+        <!--android:textSize="@dimen/year"-->
+        <!--android:text="text"/>-->
+
+
+</RelativeLayout>
