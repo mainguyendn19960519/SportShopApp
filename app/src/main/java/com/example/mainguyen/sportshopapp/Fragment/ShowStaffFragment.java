@@ -56,10 +56,6 @@ public class ShowStaffFragment extends Fragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-//        // changing action bar color
-//        getSupportActionBar().setBackgroundDrawable(
-//                new ColorDrawable(Color.parseColor("#1b1b1b")));
-
         // Creating volley request obj
         JsonArrayRequest staffReq = new JsonArrayRequest(url_all_staff,
                 new Response.Listener<JSONArray>(){
