@@ -25,6 +25,11 @@
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.EmployeeManagementActivity" />
         <activity android:name=".Activities.UserActivity" />
+        <activity android:name=".Activities.AddNewProductActivity" />
+        <activity
+            android:name=".Activities.ProductActivity"
+            android:label="@string/title_activity_all_product"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
