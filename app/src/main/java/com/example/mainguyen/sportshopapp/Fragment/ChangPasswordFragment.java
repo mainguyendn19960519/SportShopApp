@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Activities.BossManagementActivity;
 import com.example.mainguyen.sportshopapp.Activities.EmployeeManagementActivity;
 import com.example.mainguyen.sportshopapp.Activities.LoginActivity;
+import com.example.mainguyen.sportshopapp.Activities.UserActivity;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
@@ -44,12 +45,12 @@ public class ChangPasswordFragment extends Fragment {
     private static final String KEY_NEW_PASS = "newPassword";
     private static final String KEY_CONFIRM_PASS = "confirmPassword";
 
-    private String message = "";
     private static String url_login = Common.API_SERVER_IP + "api/user/changePasswordPost";
     EditText edt_oldPass;
     EditText edt_newPass;
     EditText edt_confirmPass;
     Button btn_changePass;
+    Intent managementOfActivity;
 
     @Nullable
     @Override
@@ -77,12 +78,19 @@ public class ChangPasswordFragment extends Fragment {
                     public void onResponse(String s) {
                         // Parse the JSON:
                         try {
-
                             JSONObject result = new JSONObject(s);
-                            JSONObject warning = result.getJSONObject("message");
-                            message = warning.getString("message");
-
-                            //create status and display
+                            int status = result.getInt("status");
+                            String message = result.getString("message");
+                            if(status == 1){
+                                if(LoginActivity.staff.getRoleId() == 2){
+                                    managementOfActivity = new Intent(getActivity(), UserActivity.class);
+                                    startActivity(managementOfActivity);
+                                }else if(LoginActivity.staff.getRoleId() == 3){
+                                    managementOfActivity = new Intent(getActivity(), EmployeeManagementActivity.class);
+                                    startActivity(managementOfActivity);
+                                }
+                            }
+                            Toast.makeText(getActivity(), message , Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getActivity(), "Exception", Toast.LENGTH_LONG).show();
@@ -92,14 +100,13 @@ public class ChangPasswordFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), LoginActivity.staff.getUsername(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Getting Image Name
-                LoginActivity login = new LoginActivity();
-                String userName = login.staff.getUsername().toString().trim();
+                String userName = LoginActivity.staff.getUsername().toString().trim();
                 String pass = edt_oldPass.getText().toString().trim();
                 String newPass = edt_newPass.getText().toString().trim();
                 String confirmPass = edt_confirmPass.getText().toString().trim();

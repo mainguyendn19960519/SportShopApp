@@ -38,7 +38,7 @@ public class LoginActivity extends BaseActivity {
     EditText password;
     Button btn_login;
     Button btn_cancel;
-    public Staffs staff;
+    public static Staffs staff;
 
     Intent managementOfActivity;
 
@@ -78,7 +78,7 @@ public class LoginActivity extends BaseActivity {
                         try {
 
                             JSONObject result = new JSONObject(s);
-                            JSONObject message = result.getJSONObject("message");
+                            String message = result.getString("message");
                             JSONObject dataObject = result.getJSONObject("dataObject");
                             JSONObject role = dataObject.getJSONObject("role");
 
@@ -90,9 +90,8 @@ public class LoginActivity extends BaseActivity {
                                     dataObject.getString("identityCard"),
                                     dataObject.getString("userName"),
                                     role.getInt("roleId"),
-                                    message.getString("message")
+                                    message
                             );
-
                             if(staff.getRoleId() == 2){
                                 Toast.makeText(LoginActivity.this, staff.getMessage(), Toast.LENGTH_LONG).show();
                                 managementOfActivity = new Intent(getApplicationContext(), BossManagementActivity.class);
@@ -101,9 +100,8 @@ public class LoginActivity extends BaseActivity {
                                 Toast.makeText(LoginActivity.this, staff.getMessage(), Toast.LENGTH_LONG).show();
                                 managementOfActivity = new Intent(getApplicationContext(), EmployeeManagementActivity.class);
                                 startActivity(managementOfActivity);
-                            }else{Toast.makeText(LoginActivity.this, "null" , Toast.LENGTH_LONG).show();
-                            }
 
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(LoginActivity.this, "Exception" , Toast.LENGTH_LONG).show();
@@ -114,7 +112,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         hidePDialog();
-                        Toast.makeText(LoginActivity.this, staff.getMessage() , Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Please check again!" , Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override

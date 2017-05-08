@@ -20,12 +20,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_oldPass"
             android:hint="Old Password"
+            android:password="true"
             android:gravity="center" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edt_newPass"
             android:hint="New Password"
+            android:password="true"
             android:gravity="center" />
 
         <EditText
@@ -33,6 +35,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/edt_confirmPass"
             android:hint="Config Password"
+            android:password="true"
             android:gravity="center" />
 
         <LinearLayout
