@@ -30,6 +30,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.App.AppController;
+import com.example.mainguyen.sportshopapp.Title.BaseActivity;
 import com.example.mainguyen.sportshopapp.Utils.Common;
 import com.example.mainguyen.sportshopapp.Utils.ImageUtils;
 import com.example.mainguyen.sportshopapp.Utils.RealPathUtil;
@@ -40,7 +41,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class AddNewProductActivity extends BaseActivity {
+public class AddNewProductActivity extends BaseActivity{
 
     private static final String TAG = AddNewProductActivity.class.getSimpleName();
 

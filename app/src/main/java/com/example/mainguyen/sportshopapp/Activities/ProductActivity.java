@@ -20,7 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.mainguyen.sportshopapp.Adapter.ProductAdapter;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Product;
-import com.example.mainguyen.sportshopapp.Models.Size;
+import com.example.mainguyen.sportshopapp.Title.BaseActivity;
 import com.example.mainguyen.sportshopapp.Utils.Common;
 import com.example.mainguyen.sportshopapp.R;
 

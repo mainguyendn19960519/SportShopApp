@@ -13,6 +13,7 @@ public class Common {
 
     //constant
     public static final String API_SERVER_IP = "http://192.168.103.123:8080/sportshop/";
+
     public static final String SERVER_DEPARTMENT_IMAGE_RESOURCE = "http://192.168.103.123:8080/sportshop/resources/images/";
 
     public static String getStringImage(Bitmap bmp){
