@@ -132,7 +132,9 @@ public class AddNewProductActivity extends BaseActivity{
                         loading.dismiss();
                        // Log.v("dfdfsdfdsfdffdfd","dfdfdfsdf");
                         //Showing toast message of the response
-                        Toast.makeText(AddNewProductActivity.this, s , Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddNewProductActivity.this,"Add product Successfully!", Toast.LENGTH_LONG).show();
+                        Intent backShowProduct=new Intent(getApplicationContext(),ProductActivity.class);
+                        startActivity(backShowProduct);
                     }
                 },
                 new Response.ErrorListener() {
@@ -143,7 +145,9 @@ public class AddNewProductActivity extends BaseActivity{
 
                        // Log.v("dfdfsdfdsfdffdfd","aaaaaaaaaaaaaa");
                         //Showing toast
-                        Toast.makeText(AddNewProductActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddNewProductActivity.this, "Add product Unsuccessfully!", Toast.LENGTH_LONG).show();
+                        Intent backShowProduct=new Intent(getApplicationContext(),AddNewProductActivity.class);
+                        startActivity(backShowProduct);
                     }
                 }){
             @Override
