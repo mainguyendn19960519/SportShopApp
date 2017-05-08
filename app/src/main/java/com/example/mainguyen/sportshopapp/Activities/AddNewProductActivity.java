@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mainguyen.sportshopapp.R;
@@ -60,13 +61,13 @@ public class AddNewProductActivity extends BaseActivity {
 
 
 
-    private static String url_create_department = Common.API_SERVER_IP+"api/product/addnew";
+    private static String url_create_product = Common.API_SERVER_IP+"api/product/addnew";
     EditText productName;
     EditText quantity;
     EditText price;
     EditText date;
-    EditText status;
-    EditText size;
+    Spinner status;
+    Spinner size;
     EditText description;
     ImageView iv_image;
     Button btn_camera;
@@ -87,8 +88,8 @@ public class AddNewProductActivity extends BaseActivity {
         quantity = (EditText) findViewById(R.id.prQuantity);
         price = (EditText) findViewById(R.id.prPrice);
         date = (EditText) findViewById(R.id.prDate);
-        status = (EditText) findViewById(R.id.prType);
-        size = (EditText) findViewById(R.id.prSize);
+        status = (Spinner) findViewById(R.id.prType);
+        size = (Spinner) findViewById(R.id.prSize);
         description = (EditText) findViewById(R.id.prDescription);
         iv_image = (ImageView) findViewById(R.id.iv_image);
         btn_camera = (Button) findViewById(R.id.btn_camera);
@@ -105,7 +106,7 @@ public class AddNewProductActivity extends BaseActivity {
         btnAddNewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                executePostDepartmentToServer();
+                executePostProductToServer();
             }
         });
 
@@ -119,15 +120,16 @@ public class AddNewProductActivity extends BaseActivity {
     /**
      * Finally i convert the image in base64 and send to server how a String and in my Server reconvert to image.
      */
-    private void  executePostDepartmentToServer() {
+    private void  executePostProductToServer() {
         //Showing the progress dialog
         final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_create_department,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_create_product,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         //Disimissing the progress dialog
                         loading.dismiss();
+                       // Log.v("dfdfsdfdsfdffdfd","dfdfdfsdf");
                         //Showing toast message of the response
                         Toast.makeText(AddNewProductActivity.this, s , Toast.LENGTH_LONG).show();
                     }
@@ -138,6 +140,7 @@ public class AddNewProductActivity extends BaseActivity {
                         //Dismissing the progress dialog
                         loading.dismiss();
 
+                       // Log.v("dfdfsdfdsfdffdfd","aaaaaaaaaaaaaa");
                         //Showing toast
                         Toast.makeText(AddNewProductActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                     }
@@ -154,18 +157,28 @@ public class AddNewProductActivity extends BaseActivity {
                 String prQuantity = quantity.getText().toString().trim();
                 String prPrice = price.getText().toString().trim();
                 String prDate = date.getText().toString().trim();
-                String prStatus = status.getText().toString().trim();
-                String prSize = size.getText().toString().trim();
+                String prStatus = status.getSelectedItem().toString().trim();
+                String prSize = size.getSelectedItem().toString().trim();
                 String des = description.getText().toString().trim();
+               // Log.v("dfdfsdfdsfdffdfd",des);
                 //Creating parameters
                 Map<String,String> params = new Hashtable<String, String>();
 
                 //Adding parameters
+//                Log.v("ddd", proName);
+//                Log.v("ddd", prPrice);
+//                Log.v("ddd", prQuantity);
+//                Log.v("ddd", prDate);
+//                Log.v("ddd", prStatus);
+//                Log.v("ddd", prSize);
+//                Log.v("ddd", fileName);
+//                Log.v("ddd", image);
+//                Log.v("ddd", des);
                 params.put(KEY_DEP_NAME, proName);
                 params.put(KEY_DEP_QUANTITY, prQuantity);
                 params.put(KEY_DEP_PRICE, prPrice);
                 params.put(KEY_DEP_DATE, prDate);
-                params.put(KEY_DEP_SIZE, prPrice);
+                params.put(KEY_DEP_SIZE, prSize);
                 params.put(KEY_DEP_STATUS, prStatus);
                 params.put(KEY_DEP_DESC, des);
                 params.put(KEY_DEP_IMAGE_NAME, fileName);

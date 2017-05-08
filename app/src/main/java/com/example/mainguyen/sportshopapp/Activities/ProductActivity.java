@@ -20,6 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.mainguyen.sportshopapp.Adapter.ProductAdapter;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Product;
+import com.example.mainguyen.sportshopapp.Models.Size;
 import com.example.mainguyen.sportshopapp.Utils.Common;
 import com.example.mainguyen.sportshopapp.R;
 
@@ -98,16 +99,21 @@ public class ProductActivity extends BaseActivity {
                             try {
 
                                 JSONObject obj = response.getJSONObject(i);
-                                Product department = new Product();
-                                department.setProductId(obj.getInt("productId"));
-                                department.setProductName(obj.getString("productName"));
-                                department.setQuantity(obj.getInt("quantity"));
-                                department.setDescription( obj.getString("description"));
-                                department.setImage(Common.SERVER_DEPARTMENT_IMAGE_RESOURCE+obj.getString("image"));
+                                Product product = new Product();
+                                product.setProductId(obj.getInt("productId"));
+                                product.setProductName(obj.getString("productName"));
+                                product.setQuantity(obj.getInt("quantity"));
+                                product.setPrice(obj.getLong("price"));
+                                product.setDateUpdate(obj.getString("dateUpdate"));
+                                product.setStatus(obj.getInt("status"));
+                                product.setDescription( obj.getString("description"));
+                                //product.setSize(a);
+                                product.setImage(Common.SERVER_DEPARTMENT_IMAGE_RESOURCE+obj.getString("image"));
                                 Log.v("",Common.SERVER_DEPARTMENT_IMAGE_RESOURCE+obj.getString("image"));
+                              // Log.v("sdsd",sizeObject.getString("typeOfSize"));
 
                                 // adding movie to movies array
-                                productsList.add(department);
+                                productsList.add(product);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

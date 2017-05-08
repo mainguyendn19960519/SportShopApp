@@ -50,7 +50,8 @@
                 android:paddingLeft="10dip"
                 android:paddingRight="10dip"
                 android:paddingTop="10dip"
-                android:textSize="17dip"/>
+                android:textSize="17dip"
+                android:id="@+id/textView2" />
             <!-- Title Code -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -117,13 +118,12 @@
                 android:singleLine="true"
                 />
 
-            <EditText android:id="@+id/prSize"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:layout_marginBottom="15dip"
-                android:singleLine="true"
-                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:entries="@array/sizeProduct_array"
+                android:id="@+id/prSize" />
             <!-- titleCode -->
             <EditText android:id="@+id/prPrice"
                 android:layout_width="fill_parent"
@@ -142,13 +142,12 @@
                 />
             <!-- titleCode -->
             <!-- Input description -->
-            <EditText android:id="@+id/prType"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:layout_marginBottom="15dip"
-                android:singleLine="true"
-                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:entries="@array/typeProduct_array"
+                android:id="@+id/prType" />
 
 
             <ImageView

@@ -15,7 +15,7 @@
 
     <!-- Movie Title -->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
@@ -25,20 +25,30 @@
 
     <!-- depCode -->
     <TextView
-        android:id="@+id/depCode"
+        android:id="@+id/idPr"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/Name"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
         android:textSize="@dimen/rating" />
 
     <!-- description -->
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/price"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/depCode"
+        android:layout_below="@id/idPr"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textColor="@color/genre"
+        android:textSize="@dimen/genre" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/thumbnail"
         android:textColor="@color/genre"
@@ -46,14 +56,40 @@
 
     <!-- total_staff -->
     <TextView
-        android:id="@+id/total_staff"
+        android:id="@+id/total_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
         android:textColor="@color/year"
         android:textSize="@dimen/year"
         android:text="text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/bntDeleteProduct"
+        android:layout_height="40dp"
+        android:textColor="@color/colorRed"
+        android:text="Delete"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/quantity"
+        android:layout_toLeftOf="@+id/bntEditProduct"
+        android:layout_toStartOf="@+id/bntEditProduct"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/bntEditProduct"
+        android:layout_height="40dp"
+        android:textColor="@color/colorRed"
+        android:text="Edit"
+        android:layout_alignBaseline="@+id/bntDeleteProduct"
+        android:layout_alignBottom="@+id/bntDeleteProduct"
+        android:layout_toLeftOf="@+id/total_product"
+        android:layout_toStartOf="@+id/total_product" />
+
     <!--<TextView-->
         <!--android:id="@+id/staffId"-->
         <!--android:layout_width="fill_parent"-->
