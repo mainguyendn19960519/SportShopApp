@@ -27,6 +27,8 @@
         <activity android:name=".Activities.UserActivity" />
         <activity android:name=".Activities.EditActivity" />
         <activity android:name=".Activities.AddNewProductActivity" />
+       <activity android:name=".Activities.EditProductActivity" />
+        <fragment android:name=".Fragment.UserFragment" />
         <activity
             android:name=".Activities.ProductActivity"
             android:label="@string/title_activity_all_product"
