@@ -11,9 +11,9 @@
         <item>Female</item>
     </string-array>
     <string-array name="role_array">
-    <item>Boss</item>
-    <item>Staff</item>
-</string-array>
+        <item>Boss</item>
+        <item>Staff</item>
+    </string-array>
     <string-array name="typeProduct_array">
         <item value="0">Club Clothes</item>
         <item value="1">National Clothes</item>
