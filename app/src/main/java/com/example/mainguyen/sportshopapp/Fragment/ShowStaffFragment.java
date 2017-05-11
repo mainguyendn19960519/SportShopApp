@@ -1,8 +1,5 @@
 package com.example.mainguyen.sportshopapp.Fragment;
 
-import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,25 +35,21 @@ public class ShowStaffFragment extends Fragment {
     private static String url_all_staff = Common.API_SERVER_IP+"api/user/showStaff";
     // Log tag
     private static final String TAG = ShowStaffFragment.class.getSimpleName();
-    private ProgressDialog pDialog;
     private List<Staffs> staffsList = new ArrayList<Staffs>();
     private ListView listView;
     private StaffAdapter adapter;
+
+
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View viewAllStaff = inflater.inflate(R.layout.activity_all_staff, container, false);
 
         listView = (ListView) viewAllStaff.findViewById(R.id.lv_staff);
         adapter = new StaffAdapter(getActivity(), staffsList);
         listView.setAdapter(adapter);
 
-        pDialog = new ProgressDialog(getActivity());
-        // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
-        // Creating volley request obj
         JsonArrayRequest staffReq = new JsonArrayRequest(url_all_staff,
                 new Response.Listener<JSONArray>(){
                     @Override
@@ -87,7 +80,9 @@ public class ShowStaffFragment extends Fragment {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
             }
         });
+
         AppController.getInstance().addToRequestQueue(staffReq);
         return viewAllStaff;
     }
+
 }
