@@ -16,6 +16,14 @@
             android:orientation="vertical"
             android:layout_width="100dp"
             android:layout_height="match_parent">
+            <TextView android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Product ID"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="10dip"
+                android:textSize="17dip"
+                android:id="@+id/t" />
             <!-- Name Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -95,14 +103,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <!-- Input Name -->
-            <EditText android:id="@+id/prName"
+            <TextView android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="10dip"
+                android:textSize="17dip"
+                android:id="@+id/txtIDPR" />
+            <EditText android:id="@+id/proName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dip"
                 android:layout_marginBottom="15dip"
                 android:singleLine="true"/>
             <!-- titleCode -->
-            <EditText android:id="@+id/prQuantity"
+            <EditText android:id="@+id/proQuantity"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dip"
@@ -110,7 +127,7 @@
                 android:singleLine="true"
                 />
             <!-- titleCode -->
-            <EditText android:id="@+id/prDate"
+            <EditText android:id="@+id/proDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dip"
@@ -123,9 +140,9 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:entries="@array/sizeProduct_array"
-                android:id="@+id/prSize" />
+                android:id="@+id/proSize" />
             <!-- titleCode -->
-            <EditText android:id="@+id/prPrice"
+            <EditText android:id="@+id/proPrice"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dip"
@@ -133,7 +150,7 @@
                 android:singleLine="true"
                 />
             <!-- Input description -->
-            <EditText android:id="@+id/prDescription"
+            <EditText android:id="@+id/proDescription"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dip"
@@ -147,13 +164,13 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:entries="@array/typeProduct_array"
-                android:id="@+id/prType" />
+                android:id="@+id/proType" />
 
 
             <ImageView
-                android:id="@+id/iv_image"
+                android:id="@+id/iv_images"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/btn_camera" />
@@ -166,17 +183,17 @@
         android:layout_height="match_parent"
         android:orientation="horizontal" >
         <!-- Button Create Title -->
-        <Button android:id="@+id/btnAddNewProduct"
+        <Button android:id="@+id/btnEditProduct"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add New"/>
+            android:text="EDIT Product"/>
 
         <!--<Button android:id="@+id/btnBack"-->
-            <!--android:layout_width="0px"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Back" />-->
+        <!--android:layout_width="0px"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Back" />-->
     </LinearLayout>
 
 </LinearLayout>

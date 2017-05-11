@@ -59,10 +59,11 @@ public class ProductAdapter extends BaseAdapter {
             imageLoader = AppController.getInstance().getImageLoader();
         NetworkImageView thumbNail = (NetworkImageView) view
                 .findViewById(R.id.thumbnail);
-        TextView title = (TextView) view.findViewById(R.id.title);
-        TextView depCode = (TextView) view.findViewById(R.id.depCode);
-        TextView description = (TextView) view.findViewById(R.id.description);
-        TextView total_staff = (TextView) view.findViewById(R.id.total_staff);
+        TextView namePr = (TextView) view.findViewById(R.id.Name);
+        TextView idPr = (TextView) view.findViewById(R.id.idPr);
+        TextView price = (TextView) view.findViewById(R.id.price);
+        TextView quantity=(TextView) view.findViewById(R.id.quantity);
+        TextView total_product = (TextView) view.findViewById(R.id.total_product);
 
         // getting movie data for the row
         Product d = productsList.get(position);
@@ -71,16 +72,17 @@ public class ProductAdapter extends BaseAdapter {
         thumbNail.setImageUrl(d.getImage(), imageLoader);
 
         // Name
-        title.setText(d.getProductName());
-
+       // title.setText(d.getProductName());
+        namePr.setText("Product Name: " + String.valueOf(d.getProductName()));
         // Code
-        depCode.setText("Code: " + String.valueOf(d.getProductId()));
+        idPr.setText("ProductID: " + String.valueOf(d.getProductId()));
 
         // description
-        description.setText(d.getDescription());
-
+        price.setText("ProductPrice: " + String.valueOf(d.getPrice())+"00 VND");
+       // description.setText(d.getPrice());
+        quantity.setText("Quantity: " + String.valueOf(d.getQuantity()));
         // release year
-        total_staff.setText(String.valueOf(5));
+        total_product.setText(String.valueOf(5));
 
         return view;
     }
