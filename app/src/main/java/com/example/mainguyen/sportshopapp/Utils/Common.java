@@ -12,9 +12,9 @@ import java.io.ByteArrayOutputStream;
 public class Common {
 
     //constant
-    public static final String API_SERVER_IP = "http://192.168.103.123:8080/sportshop/";
+    public static final String API_SERVER_IP = "http://192.168.103.162:8080/Android_J2ee/";
 
-    public static final String SERVER_DEPARTMENT_IMAGE_RESOURCE = "http://192.168.103.123:8080/sportshop/resources/images/";
+    public static final String SERVER_DEPARTMENT_IMAGE_RESOURCE = "http://192.168.103.162:8080/Android_J2ee/resources/images/";
 
     public static String getStringImage(Bitmap bmp){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -23,4 +23,5 @@ public class Common {
         String encodedImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
         return encodedImage;
     }
+
 }
