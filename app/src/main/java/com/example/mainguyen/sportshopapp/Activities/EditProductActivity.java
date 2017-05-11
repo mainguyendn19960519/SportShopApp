@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -140,7 +141,7 @@ private void executePostDataToServerToUpdate(){
                         //Disimissing the progress dialog
                         loading.dismiss();
                         //Showing toast message of the response
-                        Toast.makeText(EditProductActivity.this, s, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(EditProductActivity.this, s, Toast.LENGTH_LONG).show();
                         Toast.makeText(EditProductActivity.this, "Update Information Of Product Success!", Toast.LENGTH_SHORT).show();
                         Intent showProductActivity = new Intent(getApplicationContext(), ProductActivity.class);
                         startActivity(showProductActivity);
@@ -169,8 +170,98 @@ private void executePostDataToServerToUpdate(){
                 String valuePricePr = price.getText().toString().trim();
                 String valueDatePr = date.getText().toString().trim();
                 String valueDescriptionPr = description.getText().toString().trim();
+                String status;
+                String size;
+                if(valueStatusPr.equals("Club Clothes")){
+                    status="0";
+                }else if(valueStatusPr.equals("National Clothes")){
+                    status="1";
+                }else{
+                    status="2";
+                }
+                switch(valueSizePr){
+                    case "S":
+                        size="1";
+                        break;
+                    case "M":
+                        size="2";
+                        break;
+                    case "L":
+                        size="3";
+                        break;
+                    case "XL":
+                        size="4";
+                        break;
+                    case "XXL":
+                        size="5";
+                        break;
+                    case "XXXL":
+                        size="6";
+                        break;
+                    case "1":
+                        size="7";
+                        break;
+                    case "2":
+                        size="8";
+                        break;
+                    case "3":
+                        size="9";
+                        break;
+                    case "4":
+                        size="10";
+                        break;
+                    case "5":
+                        size="11";
+                        break;
+                    case "32":
+                        size="12";
+                        break;
+                    case "33":
+                        size="13";
+                        break;
+                    case "34":
+                        size="14";
+                        break;
+                    case "35":
+                        size="15";
+                        break;
+                    case "36":
+                        size="16";
+                        break;
+                    case "37":
+                        size="17";
+                        break;
+                    case "38":
+                        size="18";
+                        break;
+                    case "39":
+                        size="19";
+                        break;
+                    case "40":
+                        size="20";
+                        break;
+                    case "41":
+                        size="21";
+                        break;
+                    case "42":
+                        size="22";
+                        break;
+                    case "43":
+                        size="23";
+                        break;
+                    case "44":
+                        size="24";
+                        break;
+                    case "45":
+                        size="25";
+                        break;
+                    default:
+                        size="null";
+                        break;
 
-                Log.v("sđssd",image);
+                }
+                Log.v("Status",status);
+                Log.v("Size",size);
                 Map<String, String> params = new Hashtable<String, String>();
                // Intent intent = getIntent();
                 //Adding parameters
@@ -179,9 +270,9 @@ private void executePostDataToServerToUpdate(){
                 params.put(KEY_DEP_QUANTITY, valueQuantityPr);
                 params.put(KEY_DEP_PRICE, valuePricePr);
                 params.put(KEY_DEP_DATE, valueDatePr);
-                params.put(KEY_DEP_STATUS, valueStatusPr);
+                params.put(KEY_DEP_STATUS, status);
                 params.put(KEY_DEP_DESC, valueDescriptionPr);
-                params.put(KEY_DEP_SIZE, valueSizePr);
+                params.put(KEY_DEP_SIZE, size);
                 params.put(KEY_DEP_IMAGE_NAME, fileName);
                 params.put(KEY_DEP_IMAGE, image);
                 return params;

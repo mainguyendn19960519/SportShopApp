@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="80dp"
+    tools:context="com.example.mainguyen.sportshopapp.Activities.ShowOrderActivity">
+
+    <TextView
+        android:text="Management Order"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:fontFamily="cursive"/>
+
+
+    <Button
+        android:text="Show Order product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/twdshowOrder"
+        android:layout_marginTop="20dp"
+        android:background="#ff6666"/>
+</LinearLayout>

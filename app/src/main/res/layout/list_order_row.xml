@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp" >
+    <!-- Id Staff -->
+    <TextView
+        android:id="@+id/order_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/order_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_id"
+        android:layout_marginTop="1dip"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+    <!-- Address -->
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_date"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+    <!-- Phone -->
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+    <!-- Username -->
+    <TextView
+        android:id="@+id/customer_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/total"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/genre"
+        android:textSize="13dp"/>
+
+    <!-- Password -->
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_name"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+    <!-- Password -->
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/genre"
+        android:textSize="13dp" />
+
+
+    <Button
+        android:text="order"
+        android:id="@+id/buttonOrder"
+        android:textColor="@color/colorRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone"
+        android:onClick="Onclick"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/bntDelete"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/buttonOrder"
+        android:layout_below="@+id/phone"
+        android:textColor="@color/colorRed"
+        android:text="Delete"
+        android:onClick="Onclick"
+        />
+
+    <!-- hide id  to send  -->
+
+
+</RelativeLayout>
