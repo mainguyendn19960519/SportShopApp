@@ -37,4 +37,5 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.0.pr2'
     compile 'com.android.support:support-v4:25.2.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
 }

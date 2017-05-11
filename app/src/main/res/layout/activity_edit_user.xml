@@ -81,14 +81,6 @@
             android:layout_marginTop="35dp"
             android:textColor="@color/genre"
             android:textSize="13dp" />
-        <!--<EditText-->
-        <!--android:id="@+id/edCart"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/staffId"-->
-        <!--android:textSize="15dp"-->
-        <!--android:layout_marginTop="200dp"/>-->
-
         <!-- Username -->
         <TextView
             android:text="USER NAME"
