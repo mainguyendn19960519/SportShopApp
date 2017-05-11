@@ -24,16 +24,13 @@
                 android:gravity="center"
                 android:textSize="30dp"
                 android:textColor="@color/colorBlue"
-                android:fontFamily="monospace"
-                />
+                android:fontFamily="monospace" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <EditText
                 android:layout_width="match_parent"
@@ -42,8 +39,7 @@
                 android:hint="Your's fullname"
                 android:textSize="15dp"
                 android:fontFamily="serif"
-                android:id="@+id/edt_fullname"
-                />
+                android:id="@+id/edt_fullname" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,8 +47,7 @@
                 android:hint="Your's identity card"
                 android:textSize="15dp"
                 android:fontFamily="serif"
-                android:id="@+id/edt_identityCard"
-                />
+                android:id="@+id/edt_identityCard" />
 
         </LinearLayout>
         <LinearLayout
@@ -67,8 +62,7 @@
                 android:hint="Your's address"
                 android:textSize="15dp"
                 android:fontFamily="serif"
-                android:id="@+id/edt_Address"
-                />
+                android:id="@+id/edt_Address" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,8 +70,7 @@
                 android:hint="Your's phone"
                 android:textSize="15dp"
                 android:fontFamily="serif"
-                android:id="@+id/edt_phone"
-                />
+                android:id="@+id/edt_phone" />
 
         </LinearLayout>
         <LinearLayout
@@ -111,7 +104,7 @@
             android:hint="Your's Username"
             android:textSize="15dp"
             android:fontFamily="serif"
-            android:id="@+id/edt_username" />
+            android:id="@+id/edt_userName" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -120,8 +113,8 @@
                 android:hint="Your's Password"
                 android:textSize="15dp"
                 android:fontFamily="serif"
+                android:password="true"
                 android:id="@+id/edt_pass" />
-
     </LinearLayout>
         <LinearLayout
         android:layout_width="match_parent"
@@ -138,18 +131,6 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"/>
-
-            <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_button"
-            android:layout_weight="1"
-            android:text="Cancel"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/btn_cancel"/>
-
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
