@@ -15,20 +15,20 @@
     <item>Staff</item>
 </string-array>
     <string-array name="typeProduct_array">
-        <!--<item value="0">Club Clothes</item>-->
-        <!--<item value="1">National Clothes</item>-->
-        <!--<item value="2">Shoes and Ball</item>-->
-        <item value="0">0</item>
-        <item value="1">1</item>
-        <item value="2">2</item>
+        <item value="0">Club Clothes</item>
+        <item value="1">National Clothes</item>
+        <item value="2">Shoes and Ball</item>
+        <!--<item value="0">0</item>-->
+        <!--<item value="1">1</item>-->
+        <!--<item value="2">2</item>-->
     </string-array>
     <string-array name="sizeProduct_array">
-        <!--<item value="1">S</item>-->
-        <!--<item value="2">M</item>-->
-        <!--<item value="3">L</item>-->
-        <!--<item value="4">XL</item>-->
-        <!--<item value="5">XXL</item>-->
-        <!--<item value="6">XXXL</item>-->
+        <item value="1">S</item>
+        <item value="2">M</item>
+        <item value="3">L</item>
+        <item value="4">XL</item>
+        <item value="5">XXL</item>
+        <item value="6">XXXL</item>
         <item value="7">1</item>
         <item value="8">2</item>
         <item value="9">3</item>

@@ -165,6 +165,98 @@ public class AddNewProductActivity extends BaseActivity{
                 String prSize = size.getSelectedItem().toString().trim();
                 String des = description.getText().toString().trim();
                // Log.v("dfdfsdfdsfdffdfd",des);
+                String status;
+                String size;
+                if(prStatus.equals("Club Clothes")){
+                    status="0";
+                }else if(prStatus.equals("National Clothes")){
+                    status="1";
+                }else{
+                    status="2";
+                }
+                switch(prSize){
+                    case "S":
+                        size="1";
+                        break;
+                    case "M":
+                        size="2";
+                        break;
+                    case "L":
+                        size="3";
+                        break;
+                    case "XL":
+                        size="4";
+                        break;
+                    case "XXL":
+                        size="5";
+                        break;
+                    case "XXXL":
+                        size="6";
+                        break;
+                    case "1":
+                        size="7";
+                        break;
+                    case "2":
+                        size="8";
+                        break;
+                    case "3":
+                        size="9";
+                        break;
+                    case "4":
+                        size="10";
+                        break;
+                    case "5":
+                        size="11";
+                        break;
+                    case "32":
+                        size="12";
+                        break;
+                    case "33":
+                        size="13";
+                        break;
+                    case "34":
+                        size="14";
+                        break;
+                    case "35":
+                        size="15";
+                        break;
+                    case "36":
+                        size="16";
+                        break;
+                    case "37":
+                        size="17";
+                        break;
+                    case "38":
+                        size="18";
+                        break;
+                    case "39":
+                        size="19";
+                        break;
+                    case "40":
+                        size="20";
+                        break;
+                    case "41":
+                        size="21";
+                        break;
+                    case "42":
+                        size="22";
+                        break;
+                    case "43":
+                        size="23";
+                        break;
+                    case "44":
+                        size="24";
+                        break;
+                    case "45":
+                        size="25";
+                        break;
+                    default:
+                        size="null";
+                        break;
+
+                }
+                Log.v("Status",status);
+                Log.v("Size",size);
                 //Creating parameters
                 Map<String,String> params = new Hashtable<String, String>();
 
@@ -172,8 +264,8 @@ public class AddNewProductActivity extends BaseActivity{
                 params.put(KEY_DEP_QUANTITY, prQuantity);
                 params.put(KEY_DEP_PRICE, prPrice);
                 params.put(KEY_DEP_DATE, prDate);
-                params.put(KEY_DEP_SIZE, prSize);
-                params.put(KEY_DEP_STATUS, prStatus);
+                params.put(KEY_DEP_SIZE, size);
+                params.put(KEY_DEP_STATUS, status);
                 params.put(KEY_DEP_DESC, des);
                 params.put(KEY_DEP_IMAGE_NAME, fileName);
                 params.put(KEY_DEP_IMAGE, image);
