@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mainguyen.sportshopapp.R;
@@ -41,15 +42,16 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class AddNewProductActivity extends BaseActivity{
+public class EditProductActivity extends BaseActivity{
 
-    private static final String TAG = AddNewProductActivity.class.getSimpleName();
+    private static final String TAG = EditProductActivity.class.getSimpleName();
 
     private static final int REQUEST_CAMERA = 1001;
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final int REQUEST_ACCESS_EXTERNAL_STORAGE_PERMISSION = 2;
     private static final int REQUEST_GALLERY = 1002;
 
+    private static final String KEY_DEP_IID = "productId";
     private static final String KEY_DEP_NAME = "productName";
     private static final String KEY_DEP_QUANTITY = "quantity";
     private static final String KEY_DEP_PRICE = "price";
@@ -62,7 +64,8 @@ public class AddNewProductActivity extends BaseActivity{
 
 
 
-    private static String url_create_product = Common.API_SERVER_IP+"api/product/addnew";
+    private static String url_edit_product = Common.API_SERVER_IP+"api/product/edit";
+    TextView productId;
     EditText productName;
     EditText quantity;
     EditText price;
@@ -72,8 +75,8 @@ public class AddNewProductActivity extends BaseActivity{
     EditText description;
     ImageView iv_image;
     Button btn_camera;
-    Button btnAddNewProduct;
-   // Button btnDeleteDepartment;
+    Button btnEdit;
+    // Button btnDeleteDepartment;
     private Uri selectedImageUri;
     private final CharSequence[] items = {"Take Photo", "From Gallery"};
     private Bitmap mBitmap;
@@ -83,19 +86,29 @@ public class AddNewProductActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_product);
+        setContentView(R.layout.activity_edit_product);
 
-        productName = (EditText) findViewById(R.id.prName);
-        quantity = (EditText) findViewById(R.id.prQuantity);
-        price = (EditText) findViewById(R.id.prPrice);
-        date = (EditText) findViewById(R.id.prDate);
-        status = (Spinner) findViewById(R.id.prType);
-        size = (Spinner) findViewById(R.id.prSize);
-        description = (EditText) findViewById(R.id.prDescription);
-        iv_image = (ImageView) findViewById(R.id.iv_image);
+        btnEdit = (Button) findViewById(R.id.btnEditProduct);
+        productId=(TextView) findViewById(R.id.txtIDPR);
+        productName = (EditText) findViewById(R.id.proName);
+        quantity = (EditText) findViewById(R.id.proQuantity);
+        price = (EditText) findViewById(R.id.proPrice);
+        date = (EditText) findViewById(R.id.proDate);
+        status = (Spinner) findViewById(R.id.proType);
+        size = (Spinner) findViewById(R.id.proSize);
+        description = (EditText) findViewById(R.id.proDescription);
+        iv_image = (ImageView) findViewById(R.id.iv_images);
         btn_camera = (Button) findViewById(R.id.btn_camera);
-        btnAddNewProduct = (Button) findViewById(R.id.btnAddNewProduct);
-       // btnDeleteDepartment = (Button) findViewById(R.id.btnDeleteDepartment);
+        // btnDeleteDepartment = (Button) findViewById(R.id.btnDeleteDepartment);
+
+        Intent item = getIntent();
+        productId.setText(item.getStringExtra(KEY_DEP_IID));
+        productName.setText(item.getStringExtra(KEY_DEP_NAME));
+        quantity.setText(item.getStringExtra(KEY_DEP_QUANTITY));
+        price.setText(item.getStringExtra(KEY_DEP_PRICE));
+        date.setText(item.getStringExtra(KEY_DEP_DATE));
+        description.setText(item.getStringExtra(KEY_DEP_DESC));
+
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,37 +116,34 @@ public class AddNewProductActivity extends BaseActivity{
             }
         });
 
-        btnAddNewProduct.setOnClickListener(new View.OnClickListener() {
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                executePostProductToServer();
+            public void onClick(View view) {
+                executePostDataToServerToUpdate();
+               // executePostDataToServerToUpdate(valueIdPr,valueNamePr,valueQuantityPr, valueStatusPr, valueSizePr, valuePricePr,valueDatePr,valueDescriptionPr,fileName);
+                //ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
             }
         });
-
-
-
         if (selectedImageUri == null) {
-            btnAddNewProduct.setClickable(false);
+            btnEdit.setClickable(false);
         }
     }
 
-    /**
-     * Finally i convert the image in base64 and send to server how a String and in my Server reconvert to image.
-     */
-    private void  executePostProductToServer() {
-        //Showing the progress dialog
-        final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_create_product,
+private void executePostDataToServerToUpdate(){
+
+        final ProgressDialog loading = ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_edit_product,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         //Disimissing the progress dialog
                         loading.dismiss();
-                       // Log.v("dfdfsdfdsfdffdfd","dfdfdfsdf");
                         //Showing toast message of the response
-                        Toast.makeText(AddNewProductActivity.this,"Add product Successfully!", Toast.LENGTH_LONG).show();
-                        Intent backShowProduct=new Intent(getApplicationContext(),ProductActivity.class);
-                        startActivity(backShowProduct);
+                        Toast.makeText(EditProductActivity.this, s, Toast.LENGTH_LONG).show();
+                        Toast.makeText(EditProductActivity.this, "Update Information Of Product Success!", Toast.LENGTH_SHORT).show();
+                        Intent showProductActivity = new Intent(getApplicationContext(), ProductActivity.class);
+                        startActivity(showProductActivity);
                     }
                 },
                 new Response.ErrorListener() {
@@ -141,53 +151,51 @@ public class AddNewProductActivity extends BaseActivity{
                     public void onErrorResponse(VolleyError volleyError) {
                         //Dismissing the progress dialog
                         loading.dismiss();
-
-                       // Log.v("dfdfsdfdsfdffdfd","aaaaaaaaaaaaaa");
                         //Showing toast
-                        Toast.makeText(AddNewProductActivity.this, "Add product Unsuccessfully!", Toast.LENGTH_LONG).show();
-                        Intent backShowProduct=new Intent(getApplicationContext(),AddNewProductActivity.class);
-                        startActivity(backShowProduct);
+                        Toast.makeText(EditProductActivity.this, "Update information of product unsuccess", Toast.LENGTH_SHORT).show();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                //Converting Bitmap to String
+                //Creating parameters
                 String image = Common.getStringImage(mBitmap);
                 File file = new File(realPath);
                 String fileName = file.getName();
+                String valueIdPr = productId.getText().toString().trim();
+                String valueNamePr = productName.getText().toString().trim();
+                String valueQuantityPr = quantity.getText().toString().trim();
+                String valueStatusPr = status.getSelectedItem().toString().trim();
+                String valueSizePr = size.getSelectedItem().toString().trim();
+                String valuePricePr = price.getText().toString().trim();
+                String valueDatePr = date.getText().toString().trim();
+                String valueDescriptionPr = description.getText().toString().trim();
 
-                //Getting Image Name
-                String proName = productName.getText().toString().trim();
-                String prQuantity = quantity.getText().toString().trim();
-                String prPrice = price.getText().toString().trim();
-                String prDate = date.getText().toString().trim();
-                String prStatus = status.getSelectedItem().toString().trim();
-                String prSize = size.getSelectedItem().toString().trim();
-                String des = description.getText().toString().trim();
-               // Log.v("dfdfsdfdsfdffdfd",des);
-                //Creating parameters
-                Map<String,String> params = new Hashtable<String, String>();
-
-                params.put(KEY_DEP_NAME, proName);
-                params.put(KEY_DEP_QUANTITY, prQuantity);
-                params.put(KEY_DEP_PRICE, prPrice);
-                params.put(KEY_DEP_DATE, prDate);
-                params.put(KEY_DEP_SIZE, prSize);
-                params.put(KEY_DEP_STATUS, prStatus);
-                params.put(KEY_DEP_DESC, des);
+                Log.v("sđssd",image);
+                Map<String, String> params = new Hashtable<String, String>();
+               // Intent intent = getIntent();
+                //Adding parameters
+                params.put(KEY_DEP_IID, valueIdPr);
+                params.put(KEY_DEP_NAME, valueNamePr);
+                params.put(KEY_DEP_QUANTITY, valueQuantityPr);
+                params.put(KEY_DEP_PRICE, valuePricePr);
+                params.put(KEY_DEP_DATE, valueDatePr);
+                params.put(KEY_DEP_STATUS, valueStatusPr);
+                params.put(KEY_DEP_DESC, valueDescriptionPr);
+                params.put(KEY_DEP_SIZE, valueSizePr);
                 params.put(KEY_DEP_IMAGE_NAME, fileName);
                 params.put(KEY_DEP_IMAGE, image);
-                //returning parameters
                 return params;
             }
         };
-
-
-
-        //Adding request to the queue
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
+
+
+    /**
+     * Finally i convert the image in base64 and send to server how a String and in my Server reconvert to image.
+     */
+
 
     private void openFileChooserDialog() {
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
@@ -328,8 +336,7 @@ public class AddNewProductActivity extends BaseActivity{
 
     private void setImageBitmap(Bitmap bm) {
         iv_image.setImageBitmap(bm);
-        btnAddNewProduct.setClickable(true);
+        btnEdit.setClickable(true);
 
     }
-
 }

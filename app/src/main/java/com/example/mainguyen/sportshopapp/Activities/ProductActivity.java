@@ -12,11 +12,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Adapter.ProductAdapter;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Product;
@@ -29,7 +33,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -39,12 +45,21 @@ import java.util.List;
 public class ProductActivity extends BaseActivity {
     // url to get all titles list
     private static String url_all_departments = Common.API_SERVER_IP+"api/product/";
+    private static String url_delete_product_id = Common.API_SERVER_IP+"api/product/delete";
     // Log tag
     private static final String TAG = ProductActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private List<Product> productsList = new ArrayList<Product>();
     private ListView listView;
     private ProductAdapter adapter;
+    private static final String KEY_DEP_ID = "id";
+    private String srtId="null";
+    private static final String KEY_DEP_IID = "productId";
+    private static final String KEY_DEP_NAME = "productName";
+    private static final String KEY_DEP_QUANTITY = "quantity";
+    private static final String KEY_DEP_PRICE = "price";
+    private static final String KEY_DEP_DATE = "dateUpdate";
+    private static final String KEY_DEP_DESC = "description";
 
 
     @Override
@@ -70,7 +85,6 @@ public class ProductActivity extends BaseActivity {
                         .setAction("Action", null).show();
             }
         });
-
 
 
         listView = (ListView) findViewById(R.id.lv_product);
@@ -160,4 +174,78 @@ public class ProductActivity extends BaseActivity {
     public void onPermissionsGranted(int requestCode) {
 
     }
+    public void OnclickDeleteProduct(View view){
+        View parentRow = (View) view.getParent();
+
+        ListView listView1 = (ListView) parentRow.getParent();
+
+        final int position = listView1.getPositionForView(parentRow);
+
+        srtId=String.valueOf(productsList.get(position).getProductId());
+//        Log.v("In ra gia tri",srtId);
+//
+        executePostDataToServerToUpdate();
+//        productsList.remove(position);
+//
+//        adapter.notifyDataSetChanged();
+
+    }
+private void executePostDataToServerToUpdate(){
+
+    final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
+
+    StringRequest stringRequest = new StringRequest(Request.Method.POST, url_delete_product_id,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    //Disimissing the progress dialog
+                    loading.dismiss();
+                    //Showing toast message of the response
+                    // Toast.makeText(ShowStaffActivity.this, s , Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProductActivity.this, "Delete Product Success!", Toast.LENGTH_LONG).show();
+                    Intent backShowProduct=new Intent(getApplicationContext(),ProductActivity.class);
+                    startActivity(backShowProduct);
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    //Dismissing the progress dialog
+                    loading.dismiss();
+
+                    //Showing toast
+                    //Toast.makeText(ProductActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProductActivity.this, "Delete Product Not Success!", Toast.LENGTH_LONG).show();
+                }
+            }){
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            //Creating parameters
+            Map<String,String> params = new Hashtable<String, String>();
+            //Adding parameters
+
+            Log.v("loi o day",srtId);
+            params.put(KEY_DEP_ID, srtId);
+            //returning parameters
+            return params;
+        }
+    };
+    AppController.getInstance().addToRequestQueue(stringRequest);}
+    public void OnclickEditProduct(View view) {
+            View parentRow = (View) view.getParent();
+
+            ListView listView1 = (ListView) parentRow.getParent();
+
+            final int position = listView1.getPositionForView(parentRow);
+
+            Intent intent = new Intent(getApplicationContext(),EditProductActivity.class);
+            intent.putExtra(KEY_DEP_IID,String.valueOf(productsList.get(position).getProductId()));
+            intent.putExtra(KEY_DEP_NAME,productsList.get(position).getProductName());
+            intent.putExtra(KEY_DEP_QUANTITY,String.valueOf(productsList.get(position).getQuantity()));
+            intent.putExtra(KEY_DEP_PRICE,String.valueOf(productsList.get(position).getPrice()));
+            intent.putExtra(KEY_DEP_DATE,productsList.get(position).getDateUpdate());
+            intent.putExtra(KEY_DEP_DESC,productsList.get(position).getDescription());
+            startActivity(intent);
+
+        }
 }

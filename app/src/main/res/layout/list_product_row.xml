@@ -77,7 +77,8 @@
         android:layout_toLeftOf="@+id/bntEditProduct"
         android:layout_toStartOf="@+id/bntEditProduct"
         android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
+        android:layout_marginEnd="13dp"
+        android:onClick="OnclickDeleteProduct"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -85,6 +86,7 @@
         android:layout_height="40dp"
         android:textColor="@color/colorRed"
         android:text="Edit"
+        android:onClick="OnclickEditProduct"
         android:layout_alignBaseline="@+id/bntDeleteProduct"
         android:layout_alignBottom="@+id/bntDeleteProduct"
         android:layout_toLeftOf="@+id/total_product"
