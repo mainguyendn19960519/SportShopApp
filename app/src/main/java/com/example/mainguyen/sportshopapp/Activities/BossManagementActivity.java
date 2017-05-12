@@ -34,6 +34,14 @@ public class BossManagementActivity extends BaseActivity {
                 startActivity(managementProductActivity);
             }
         });
+
+        Button btOrderManagement = (Button) findViewById(R.id.btnDerManagement);
+        btOrderManagement.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0) {
+                Intent managementOrderActivity = new Intent(getApplicationContext(), ManagementOrderActivity.class);
+                startActivity(managementOrderActivity);
+            }
+        });
     }
 
     @Override

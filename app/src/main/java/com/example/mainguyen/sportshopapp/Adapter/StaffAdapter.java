@@ -1,15 +1,14 @@
 package com.example.mainguyen.sportshopapp.Adapter;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,14 +20,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Activities.EditActivity;
 import com.example.mainguyen.sportshopapp.App.AppController;
-import com.example.mainguyen.sportshopapp.Fragment.ShowStaffFragment;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
 import com.example.mainguyen.sportshopapp.Utils.Common;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +38,7 @@ public class StaffAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
     private List<Staffs> staffsList;
+
     private static final String STAFF_ID = "staffId";
     private static final String NAME = "name";
     private static final String ADDRESS = "address";
@@ -155,8 +152,8 @@ public class StaffAdapter extends BaseAdapter {
         notifyDataSetChanged();
 
     }
-    ///
     private void executePostDataToServerToUpdate1(){
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url_deleteacount_id,
                 new Response.Listener<String>() {
                     @Override
@@ -168,7 +165,7 @@ public class StaffAdapter extends BaseAdapter {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(activity, "Exception", Toast.LENGTH_LONG).show();
-                        }
+                        }//Disimissing the progress dialog
                     }
                 },
                 new Response.ErrorListener() {
@@ -176,6 +173,7 @@ public class StaffAdapter extends BaseAdapter {
                     public void onErrorResponse(VolleyError volleyError) {
 
                         Toast.makeText(activity, "Error, Tray Again!", Toast.LENGTH_LONG).show();
+                        //Showing toast
                     }
                 }){
             @Override
