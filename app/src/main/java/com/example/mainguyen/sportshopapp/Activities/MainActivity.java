@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 startActivity(nextScreen);
                 break;
             case 2:
-                
+
                 setContentView(R.layout.activity_search);
                 break;
         }

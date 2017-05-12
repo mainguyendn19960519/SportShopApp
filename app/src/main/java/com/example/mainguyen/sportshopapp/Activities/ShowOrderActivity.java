@@ -49,16 +49,10 @@ public class ShowOrderActivity extends BaseActivity {
     private List<Order> ordersList = new ArrayList<Order>();
     private ListView listView;
     private OrderAdapter adapter;
-    Order orders;
-    private Button btDelete;
-    TextView getID;
-    int i=0;
-    Button btnOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getID=(TextView) findViewById(R.id.get_order_id);
         setContentView(R.layout.activity_all_order);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -72,8 +66,6 @@ public class ShowOrderActivity extends BaseActivity {
             }
         });
 
-
-        Log.v("sdfdfdf","dfdfdfdfdfd");
         listView = (ListView) findViewById(R.id.lv_order);
         adapter = new OrderAdapter(this, ordersList);
 
@@ -103,11 +95,6 @@ public class ShowOrderActivity extends BaseActivity {
                                 order_cus.setCustomer_name(obj.getString("customerName"));
                                 order_cus.setAddress(obj.getString("address"));
                                 order_cus.setPhone(obj.getString("phone"));
-
-                                Log.v("sdfdfdf",obj.getString("phone"));
-                                Log.v("sdfdfdf",obj.getString("customerName"));
-                                Log.v("sdfdfdf",obj.getString("orderDate"));
-                                Log.v("sdfdfdf",obj.getString("address"));
                                 ordersList.add(order_cus);
 
                             } catch (JSONException e) {
@@ -120,7 +107,6 @@ public class ShowOrderActivity extends BaseActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Log.v("sdfdfdf","dfdfdfdfdfghfghfgfgfgfgfgfgfgfgfgfgfgfgfgfgd");
                 hidePDialog();
             }
         });
