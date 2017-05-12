@@ -61,7 +61,6 @@ public class AddNewProductActivity extends BaseActivity{
     private static final String KEY_DEP_IMAGE_NAME= "imageName";
 
 
-
     private static String url_create_product = Common.API_SERVER_IP+"api/product/addnew";
     EditText productName;
     EditText quantity;

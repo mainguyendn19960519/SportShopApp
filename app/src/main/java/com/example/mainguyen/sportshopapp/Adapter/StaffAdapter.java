@@ -3,28 +3,45 @@ package com.example.mainguyen.sportshopapp.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Activities.EditActivity;
+import com.example.mainguyen.sportshopapp.App.AppController;
+import com.example.mainguyen.sportshopapp.Fragment.ShowStaffFragment;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
+import com.example.mainguyen.sportshopapp.Utils.Common;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by mai.nguyen on 19/04/2017.
  */
 
 public class StaffAdapter extends BaseAdapter {
+    private static String url_deleteacount_id = Common.API_SERVER_IP + "api/user/delete/";
     private Activity activity;
     private LayoutInflater inflater;
     private List<Staffs> staffsList;
-    Staffs staff;
     private static final String STAFF_ID = "staffId";
     private static final String NAME = "name";
     private static final String ADDRESS = "address";
@@ -32,6 +49,8 @@ public class StaffAdapter extends BaseAdapter {
     private static final String PASSWORD = "password";
     private static final String PHONE = "phone";
     private static final String IDENTITYCARD = "identityCard";
+
+    public String strId;
 //    private Context context;
     public StaffAdapter(Activity activity, List<Staffs> departmentList) {
         this.activity = activity;
@@ -68,6 +87,24 @@ public class StaffAdapter extends BaseAdapter {
         TextView identityCard = (TextView) view.findViewById(R.id.identityCard);
         TextView userName = (TextView) view.findViewById(R.id.userName);
         TextView password = (TextView) view.findViewById(R.id.password);
+        Button btndelete=(Button) view.findViewById(R.id.bntDelete);
+        btndelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View parentRow = (View) view.getParent();
+
+                ListView listView1 = (ListView) parentRow.getParent();
+
+                final int position = listView1.getPositionForView(parentRow);
+
+                strId = String.valueOf(staffsList.get(position).getStaffId());
+
+                executePostDataToServerToUpdate1();
+
+                upload(position);
+
+            }
+        });
 
         Button bntEdit = (Button) view.findViewById(R.id.btnEdit);
         bntEdit.setOnClickListener(new View.OnClickListener() {
@@ -111,4 +148,47 @@ public class StaffAdapter extends BaseAdapter {
 
         return view;
     }
+
+    public synchronized void upload(int postision){
+
+        staffsList.remove(postision);
+        notifyDataSetChanged();
+
+    }
+    ///
+    private void executePostDataToServerToUpdate1(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_deleteacount_id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        try {
+                            JSONObject result = new JSONObject(s);
+                            String message = result.getString("message");
+                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(activity, "Exception", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                        Toast.makeText(activity, "Error, Tray Again!", Toast.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                //Creating parameters
+                Map<String,String> params = new Hashtable<String, String>();
+                //Adding parameters
+
+                params.put(STAFF_ID, strId);
+                //  params.put(IDENTITYCARD, valueIdentitycard);
+                //returning parameters
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);}
 }

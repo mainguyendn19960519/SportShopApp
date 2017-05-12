@@ -41,7 +41,7 @@ import java.util.Map;
 public class ShowStaffFragment extends Fragment {
     // url to get all titles list
     private static String url_all_staff = Common.API_SERVER_IP+"api/user/showStaff";
-    private static String url_deleteacount_id = Common.API_SERVER_IP+"api/user/delete";
+//    private static String url_deleteacount_id = Common.API_SERVER_IP+"api/user/delete";
     // Log tag
     private static final String TAG = ShowStaffFragment.class.getSimpleName();
     private static final String STAFF_ID="staff_Id";
@@ -49,7 +49,7 @@ public class ShowStaffFragment extends Fragment {
     private List<Staffs> staffsList = new ArrayList<Staffs>();
     private ListView listView;
     private StaffAdapter adapter;
-    public String strId;
+//    public String strId;
 
 
     @Nullable
@@ -92,69 +92,7 @@ public class ShowStaffFragment extends Fragment {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
             }
         });
-        Button btndelete =(Button) viewAllStaff.findViewById(R.id.bntDelete);
-        btndelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View parentRow = (View) view.getParent();
-
-                ListView listView1 = (ListView) parentRow.getParent();
-
-                final int position = listView1.getPositionForView(parentRow);
-
-                strId=String.valueOf(staffsList.get(position).getStaffId());
-
-                executePostDataToServerToUpdate1();
-                staffsList.remove(position);
-
-                adapter.notifyDataSetChanged();
-
-            }
-        });
         AppController.getInstance().addToRequestQueue(staffReq);
         return viewAllStaff;
-
     }
-    private void executePostDataToServerToUpdate1(){
-
-        final ProgressDialog loading = ProgressDialog.show(getContext()
-                ,"Uploading...","Please wait...",false,false);
-
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_deleteacount_id,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        //Disimissing the progress dialog
-                        loading.dismiss();
-                        //Showing toast message of the response
-                        // Toast.makeText(ShowStaffActivity.this, s , Toast.LENGTH_LONG).show();
-                        Toast.makeText(getContext(), "Delete  User Success!", Toast.LENGTH_LONG).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        //Dismissing the progress dialog
-                        loading.dismiss();
-
-                        //Showing toast
-                        Toast.makeText(getContext(), volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
-                    }
-                }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                //Creating parameters
-                Map<String,String> params = new Hashtable<String, String>();
-                //Adding parameters
-
-                params.put(STAFF_ID, strId);
-                //  params.put(IDENTITYCARD, valueIdentitycard);
-                //returning parameters
-                return params;
-            }
-        };
-        AppController.getInstance().addToRequestQueue(stringRequest);}
-
-
 }
