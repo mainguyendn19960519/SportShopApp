@@ -1,6 +1,7 @@
 package com.example.mainguyen.sportshopapp.Adapter;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,13 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Activities.EditActivity;
+import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
+import com.example.mainguyen.sportshopapp.Utils.Common;
 
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by mai.nguyen on 19/04/2017.
@@ -24,6 +36,8 @@ public class StaffAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater;
     private List<Staffs> staffsList;
+    private static String url_deleteacount_id = Common.API_SERVER_IP+"api/user/delete";
+    public String strId;
     Staffs staff;
     private static final String STAFF_ID = "staffId";
     private static final String NAME = "name";
@@ -69,6 +83,24 @@ public class StaffAdapter extends BaseAdapter {
         TextView userName = (TextView) view.findViewById(R.id.userName);
         TextView password = (TextView) view.findViewById(R.id.password);
 
+        Button btndelete=(Button) view.findViewById(R.id.bntDelete);
+        btndelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View parentRow = (View) view.getParent();
+
+                ListView listView1 = (ListView) parentRow.getParent();
+
+                final int position = listView1.getPositionForView(parentRow);
+
+                strId=String.valueOf(staffsList.get(position).getStaffId());
+
+                executePostDataToServerToUpdate1();
+                staffsList.remove(position);
+
+            }
+        });
+
         Button bntEdit = (Button) view.findViewById(R.id.btnEdit);
         bntEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,4 +143,51 @@ public class StaffAdapter extends BaseAdapter {
 
         return view;
     }
+    public synchronized void upload(List<Staffs> item){
+        staffsList.clear();
+        item.addAll(item);
+        notifyDataSetChanged();
+
+    }
+    private void executePostDataToServerToUpdate1(){
+
+        final ProgressDialog loading = ProgressDialog.show(activity
+                ,"Uploading...","Please wait...",false,false);
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_deleteacount_id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        //Disimissing the progress dialog
+                        loading.dismiss();
+                        //Showing toast message of the response
+                        // Toast.makeText(ShowStaffActivity.this, s , Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "Delete  User Success!", Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //Dismissing the progress dialog
+                        loading.dismiss();
+
+                        //Showing toast
+                        Toast.makeText(activity, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                //Creating parameters
+                Map<String,String> params = new Hashtable<String, String>();
+                //Adding parameters
+
+                params.put(STAFF_ID, strId);
+                //  params.put(IDENTITYCARD, valueIdentitycard);
+                //returning parameters
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);}
+
 }
