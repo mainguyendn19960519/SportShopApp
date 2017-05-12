@@ -28,11 +28,15 @@
         <activity android:name=".Activities.EditActivity" />
         <activity android:name=".Activities.AddNewProductActivity" />
        <activity android:name=".Activities.EditProductActivity" />
+        <activity android:name=".Activities.ManagementOrderActivity" />
         <fragment android:name=".Fragment.UserFragment" />
         <activity
             android:name=".Activities.ProductActivity"
             android:label="@string/title_activity_all_product"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.ShowOrderActivity"
+            android:label="@string/title_activity_all_staff"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>

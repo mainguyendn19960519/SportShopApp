@@ -76,9 +76,7 @@ public class ShowOrderActivity extends BaseActivity {
         Log.v("sdfdfdf","dfdfdfdfdfd");
         listView = (ListView) findViewById(R.id.lv_order);
         adapter = new OrderAdapter(this, ordersList);
-
         listView.setAdapter(adapter);
-
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
