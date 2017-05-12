@@ -110,7 +110,7 @@ public class RegisterFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), LoginActivity.staff.getUsername(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Error, Try Again", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
