@@ -27,7 +27,6 @@
         <activity android:name=".Activities.UserActivity" />
         <activity android:name=".Activities.EditActivity" />
         <activity android:name=".Activities.AddNewProductActivity" />
-        <activity android:name=".Activities.ManagementOrderActivity" />
         <activity android:name=".Activities.EditProductActivity" />
         <activity
             android:name=".Activities.ProductActivity"
