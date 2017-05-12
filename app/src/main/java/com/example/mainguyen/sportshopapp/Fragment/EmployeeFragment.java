@@ -1,14 +1,15 @@
 package com.example.mainguyen.sportshopapp.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
+import com.example.mainguyen.sportshopapp.Activities.ProductActivity;
 import com.example.mainguyen.sportshopapp.R;
 
 /**
@@ -19,7 +20,7 @@ import com.example.mainguyen.sportshopapp.R;
  * Use the {@link UserFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserFragment extends Fragment {
+public class EmployeeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,11 +32,12 @@ public class UserFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private Button btRegister;
-    private Button btShowAllAccount;
-    private Button btChangePassword;
 
-    public UserFragment() {
+    private Button btChangePassword;
+    private Button btShowOrder;
+    private  Button btShowProduct;
+
+    public EmployeeFragment() {
         // Required empty public constructor
     }
 
@@ -70,25 +72,26 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_menu_user, container, false);
+        View view = inflater.inflate(R.layout.activity_employee_menu, container, false);
 
-        btRegister = (Button) view.findViewById(R.id.btnRegister);
-        btShowAllAccount = (Button) view.findViewById(R.id.btnShow);
+
         btChangePassword = (Button) view.findViewById(R.id.btnChangPass);
+        btShowOrder = (Button) view.findViewById(R.id.btnOrderManagement);
+        btShowProduct = (Button) view.findViewById(R.id.btnProductManagement);
+//
 
-
-        btRegister.setOnClickListener(new View.OnClickListener() {
+        btShowOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegisterFragment registerFragment = new RegisterFragment();
-                onButtonPressed(registerFragment);
+//                RegisterFragment registerFragment = new RegisterFragment();
+//                onButtonPressed(registerFragment);
             }
         });
-        btShowAllAccount.setOnClickListener(new View.OnClickListener() {
+        btShowProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShowStaffFragment showStaffFragment = new ShowStaffFragment();
-                onButtonPressed(showStaffFragment);
+                Intent startProduct=new Intent(getContext(), ProductActivity.class);
+                startActivity(startProduct);
             }
         });
         btChangePassword.setOnClickListener(new View.OnClickListener() {

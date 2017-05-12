@@ -45,7 +45,7 @@ public class ChangPasswordFragment extends Fragment {
     private static final String KEY_NEW_PASS = "newPassword";
     private static final String KEY_CONFIRM_PASS = "confirmPassword";
 
-    private static String url_login = Common.API_SERVER_IP + "api/user/changePasswordPost";
+    private static String url_changePassword = Common.API_SERVER_IP + "api/user/changePasswordPost";
     EditText edt_oldPass;
     EditText edt_newPass;
     EditText edt_confirmPass;
@@ -72,7 +72,7 @@ public class ChangPasswordFragment extends Fragment {
     }
 
     private void executePostDepartmentToServer() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_login,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_changePassword,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -100,7 +100,7 @@ public class ChangPasswordFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), LoginActivity.staff.getUsername(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Error, Please try again", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

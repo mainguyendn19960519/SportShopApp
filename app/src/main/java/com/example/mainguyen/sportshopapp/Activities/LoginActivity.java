@@ -37,7 +37,6 @@ public class LoginActivity extends BaseActivity {
     EditText email;
     EditText password;
     Button btn_login;
-    Button btn_cancel;
     public static Staffs staff;
 
     Intent managementOfActivity;
@@ -50,8 +49,6 @@ public class LoginActivity extends BaseActivity {
         email = (EditText) findViewById(R.id.tv_inputEmai);
         password = (EditText) findViewById(R.id.tv_inputPassword);
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_cancel = (Button) findViewById(R.id.btn_cancel);
-
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +56,7 @@ public class LoginActivity extends BaseActivity {
                 executePostDepartmentToServer();
             }
         });
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              finish();
-            }
-        });
+
     }
 
     private void  executePostDepartmentToServer() {
