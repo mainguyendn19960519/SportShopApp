@@ -1,6 +1,7 @@
 package com.example.mainguyen.sportshopapp.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,11 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.mainguyen.sportshopapp.Adapter.OrderAdapter;
 import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Order;
@@ -27,7 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by nhan.ly on 5/5/2017.
@@ -35,6 +42,7 @@ import java.util.List;
 
 public class ShowOrderActivity extends BaseActivity {
     private static String url_all_order = Common.API_SERVER_IP+"api/product/order";
+    private static String url_delete_order_id = Common.API_SERVER_IP+"api/product/deleteOrder";
     private  static  final String STAFF_ID = "staffId";
     private  static  final String ORDER_ID = "order_id";
     private  static  final String ORDER_DATE = "order_date";
@@ -43,6 +51,8 @@ public class ShowOrderActivity extends BaseActivity {
     private static final String CUSTOMER_NAME = "customer_name";
     private static final String ADDRESS="address";
     private static final String PHONE="phone";
+    private static final String KEY_ORDER_ID="orderId";
+
     // Log tag
     private static final String TAG = UserActivity.class.getSimpleName();
     private ProgressDialog pDialog;
@@ -50,6 +60,7 @@ public class ShowOrderActivity extends BaseActivity {
     private ListView listView;
     private OrderAdapter adapter;
     Order orders;
+    String orderID;
     private Button btDelete;
     TextView getID;
     int i=0;
@@ -136,6 +147,64 @@ public class ShowOrderActivity extends BaseActivity {
             pDialog = null;
         }
     }
+
+    public void OnclickDeleteOrder(View view){
+        View parentRow = (View) view.getParent();
+
+        ListView listView1 = (ListView) parentRow.getParent();
+
+        final int position = listView1.getPositionForView(parentRow);
+
+        orderID=String.valueOf(ordersList.get(position).getOrderId());
+//        Log.v("In ra gia tri",srtId);
+//
+        executePostDataToServerToUpdate();
+//        productsList.remove(position);
+//
+//        adapter.notifyDataSetChanged();
+
+    }
+    private void executePostDataToServerToUpdate(){
+
+        final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_delete_order_id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        //Disimissing the progress dialog
+                        loading.dismiss();
+                        //Showing toast message of the response
+                        // Toast.makeText(ShowStaffActivity.this, s , Toast.LENGTH_LONG).show();
+                        Toast.makeText(ShowOrderActivity.this, "Delete Order Success!", Toast.LENGTH_LONG).show();
+                        Intent backShowProduct=new Intent(getApplicationContext(),ShowOrderActivity.class);
+                        startActivity(backShowProduct);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        //Dismissing the progress dialog
+                        loading.dismiss();
+
+                        //Showing toast
+                        //Toast.makeText(ProductActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ShowOrderActivity.this, "Delete Product Not Success!", Toast.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                //Creating parameters
+                Map<String,String> params = new Hashtable<String, String>();
+                //Adding parameters
+
+                Log.v("loi o day",orderID);
+                params.put(KEY_ORDER_ID, orderID);
+                //returning parameters
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);}
     @Override
     public void onPermissionsGranted(int requestCode) {
 

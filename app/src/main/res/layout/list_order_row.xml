@@ -90,7 +90,7 @@
         android:layout_below="@+id/phone"
         android:textColor="@color/colorRed"
         android:text="Delete"
-        android:onClick="Onclick"
+        android:onClick="OnclickDeleteOrder"
         />
 
     <!-- hide id  to send  -->
