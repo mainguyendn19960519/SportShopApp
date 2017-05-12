@@ -33,7 +33,6 @@ import java.util.List;
 public class ShowStaffFragment extends Fragment {
     // url to get all titles list
     private static String url_all_staff = Common.API_SERVER_IP+"api/user/showStaff";
-
     // Log tag
     private static final String TAG = ShowStaffFragment.class.getSimpleName();
 
@@ -41,9 +40,6 @@ public class ShowStaffFragment extends Fragment {
     private List<Staffs> staffsList = new ArrayList<Staffs>();
     private ListView listView;
     private StaffAdapter adapter;
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -84,13 +80,7 @@ public class ShowStaffFragment extends Fragment {
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
             }
         });
-
         AppController.getInstance().addToRequestQueue(staffReq);
         return viewAllStaff;
-
     }
-
-
-
-
 }

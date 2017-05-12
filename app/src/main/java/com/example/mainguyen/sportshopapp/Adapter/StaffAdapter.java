@@ -23,7 +23,8 @@ import com.example.mainguyen.sportshopapp.App.AppController;
 import com.example.mainguyen.sportshopapp.Models.Staffs;
 import com.example.mainguyen.sportshopapp.R;
 import com.example.mainguyen.sportshopapp.Utils.Common;
-
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,11 @@ import java.util.Map;
  */
 
 public class StaffAdapter extends BaseAdapter {
+    private static String url_deleteacount_id = Common.API_SERVER_IP + "api/user/delete/";
     private Activity activity;
     private LayoutInflater inflater;
     private List<Staffs> staffsList;
-    private static String url_deleteacount_id = Common.API_SERVER_IP+"api/user/delete";
-    public String strId;
-    Staffs staff;
+
     private static final String STAFF_ID = "staffId";
     private static final String NAME = "name";
     private static final String ADDRESS = "address";
@@ -46,6 +46,8 @@ public class StaffAdapter extends BaseAdapter {
     private static final String PASSWORD = "password";
     private static final String PHONE = "phone";
     private static final String IDENTITYCARD = "identityCard";
+
+    public String strId;
 //    private Context context;
     public StaffAdapter(Activity activity, List<Staffs> departmentList) {
         this.activity = activity;
@@ -82,7 +84,6 @@ public class StaffAdapter extends BaseAdapter {
         TextView identityCard = (TextView) view.findViewById(R.id.identityCard);
         TextView userName = (TextView) view.findViewById(R.id.userName);
         TextView password = (TextView) view.findViewById(R.id.password);
-
         Button btndelete=(Button) view.findViewById(R.id.bntDelete);
         btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,10 +94,11 @@ public class StaffAdapter extends BaseAdapter {
 
                 final int position = listView1.getPositionForView(parentRow);
 
-                strId=String.valueOf(staffsList.get(position).getStaffId());
+                strId = String.valueOf(staffsList.get(position).getStaffId());
 
                 executePostDataToServerToUpdate1();
-                staffsList.remove(position);
+
+                upload(position);
 
             }
         });
@@ -143,37 +145,35 @@ public class StaffAdapter extends BaseAdapter {
 
         return view;
     }
-    public synchronized void upload(List<Staffs> item){
-        staffsList.clear();
-        item.addAll(item);
+
+    public synchronized void upload(int postision){
+
+        staffsList.remove(postision);
         notifyDataSetChanged();
 
     }
     private void executePostDataToServerToUpdate1(){
 
-        final ProgressDialog loading = ProgressDialog.show(activity
-                ,"Uploading...","Please wait...",false,false);
-
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url_deleteacount_id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        //Disimissing the progress dialog
-                        loading.dismiss();
-                        //Showing toast message of the response
-                        // Toast.makeText(ShowStaffActivity.this, s , Toast.LENGTH_LONG).show();
-                        Toast.makeText(activity, "Delete  User Success!", Toast.LENGTH_LONG).show();
+                        try {
+                            JSONObject result = new JSONObject(s);
+                            String message = result.getString("message");
+                            Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(activity, "Exception", Toast.LENGTH_LONG).show();
+                        }//Disimissing the progress dialog
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        //Dismissing the progress dialog
-                        loading.dismiss();
 
+                        Toast.makeText(activity, "Error, Tray Again!", Toast.LENGTH_LONG).show();
                         //Showing toast
-                        Toast.makeText(activity, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
@@ -189,5 +189,4 @@ public class StaffAdapter extends BaseAdapter {
             }
         };
         AppController.getInstance().addToRequestQueue(stringRequest);}
-
 }

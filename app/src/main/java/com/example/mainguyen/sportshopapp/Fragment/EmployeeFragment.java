@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.mainguyen.sportshopapp.Activities.ProductActivity;
+import com.example.mainguyen.sportshopapp.Activities.ShowOrderActivity;
 import com.example.mainguyen.sportshopapp.R;
 
 /**
@@ -78,19 +79,18 @@ public class EmployeeFragment extends Fragment {
         btChangePassword = (Button) view.findViewById(R.id.btnChangPass);
         btShowOrder = (Button) view.findViewById(R.id.btnOrderManagement);
         btShowProduct = (Button) view.findViewById(R.id.btnProductManagement);
-//
 
         btShowOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                RegisterFragment registerFragment = new RegisterFragment();
-//                onButtonPressed(registerFragment);
+                Intent startShowStaff = new Intent(getContext(), ShowOrderActivity.class);
+                startActivity(startShowStaff);
             }
         });
         btShowProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startProduct=new Intent(getContext(), ProductActivity.class);
+                Intent startProduct = new Intent(getContext(), ProductActivity.class);
                 startActivity(startProduct);
             }
         });
